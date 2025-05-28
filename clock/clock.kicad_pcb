@@ -1,0 +1,9487 @@
+(kicad_pcb
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(general
+		(thickness 1.6)
+		(legacy_teardrops no)
+	)
+	(paper "A2")
+	(layers
+		(0 "F.Cu" signal)
+		(1 "In1.Cu" signal)
+		(2 "In2.Cu" signal)
+		(31 "B.Cu" power)
+		(32 "B.Adhes" user "B.Adhesive")
+		(33 "F.Adhes" user "F.Adhesive")
+		(34 "B.Paste" user)
+		(35 "F.Paste" user)
+		(36 "B.SilkS" user "B.Silkscreen")
+		(37 "F.SilkS" user "F.Silkscreen")
+		(38 "B.Mask" user)
+		(39 "F.Mask" user)
+		(40 "Dwgs.User" user "User.Drawings")
+		(41 "Cmts.User" user "User.Comments")
+		(42 "Eco1.User" user "User.Eco1")
+		(43 "Eco2.User" user "User.Eco2")
+		(44 "Edge.Cuts" user)
+		(45 "Margin" user)
+		(46 "B.CrtYd" user "B.Courtyard")
+		(47 "F.CrtYd" user "F.Courtyard")
+		(48 "B.Fab" user)
+		(49 "F.Fab" user)
+		(50 "User.1" user)
+		(51 "User.2" user)
+		(52 "User.3" user)
+		(53 "User.4" user)
+		(54 "User.5" user)
+		(55 "User.6" user)
+		(56 "User.7" user)
+		(57 "User.8" user)
+		(58 "User.9" user)
+	)
+	(setup
+		(stackup
+			(layer "F.SilkS"
+				(type "Top Silk Screen")
+			)
+			(layer "F.Paste"
+				(type "Top Solder Paste")
+			)
+			(layer "F.Mask"
+				(type "Top Solder Mask")
+				(thickness 0.01)
+			)
+			(layer "F.Cu"
+				(type "copper")
+				(thickness 0.035)
+			)
+			(layer "dielectric 1"
+				(type "prepreg")
+				(thickness 0.1)
+				(material "FR4")
+				(epsilon_r 4.5)
+				(loss_tangent 0.02)
+			)
+			(layer "In1.Cu"
+				(type "copper")
+				(thickness 0.035)
+			)
+			(layer "dielectric 2"
+				(type "core")
+				(thickness 1.24)
+				(material "FR4")
+				(epsilon_r 4.5)
+				(loss_tangent 0.02)
+			)
+			(layer "In2.Cu"
+				(type "copper")
+				(thickness 0.035)
+			)
+			(layer "dielectric 3"
+				(type "prepreg")
+				(thickness 0.1)
+				(material "FR4")
+				(epsilon_r 4.5)
+				(loss_tangent 0.02)
+			)
+			(layer "B.Cu"
+				(type "copper")
+				(thickness 0.035)
+			)
+			(layer "B.Mask"
+				(type "Bottom Solder Mask")
+				(thickness 0.01)
+			)
+			(layer "B.Paste"
+				(type "Bottom Solder Paste")
+			)
+			(layer "B.SilkS"
+				(type "Bottom Silk Screen")
+			)
+			(copper_finish "None")
+			(dielectric_constraints no)
+		)
+		(pad_to_mask_clearance 0)
+		(allow_soldermask_bridges_in_footprints no)
+		(pcbplotparams
+			(layerselection 0x00010fc_ffffffff)
+			(plot_on_all_layers_selection 0x0000000_00000000)
+			(disableapertmacros no)
+			(usegerberextensions no)
+			(usegerberattributes yes)
+			(usegerberadvancedattributes yes)
+			(creategerberjobfile yes)
+			(dashed_line_dash_ratio 12.000000)
+			(dashed_line_gap_ratio 3.000000)
+			(svgprecision 4)
+			(plotframeref no)
+			(viasonmask no)
+			(mode 1)
+			(useauxorigin no)
+			(hpglpennumber 1)
+			(hpglpenspeed 20)
+			(hpglpendiameter 15.000000)
+			(pdf_front_fp_property_popups yes)
+			(pdf_back_fp_property_popups yes)
+			(dxfpolygonmode yes)
+			(dxfimperialunits yes)
+			(dxfusepcbnewfont yes)
+			(psnegative no)
+			(psa4output no)
+			(plotreference yes)
+			(plotvalue yes)
+			(plotfptext yes)
+			(plotinvisibletext no)
+			(sketchpadsonfab no)
+			(subtractmaskfromsilk no)
+			(outputformat 1)
+			(mirror no)
+			(drillshape 1)
+			(scaleselection 1)
+			(outputdirectory "")
+		)
+	)
+	(net 0 "")
+	(net 1 "Net-(D1-DIN)")
+	(net 2 "GND")
+	(net 3 "Net-(D1-DOUT)")
+	(net 4 "5V")
+	(net 5 "D_In")
+	(net 6 "Net-(D2-DOUT)")
+	(net 7 "Net-(D3-DOUT)")
+	(net 8 "Net-(D4-DIN)")
+	(net 9 "Net-(D12-DOUT)")
+	(net 10 "Net-(D10-DIN)")
+	(net 11 "Net-(D14-DIN)")
+	(net 12 "Net-(D13-DIN)")
+	(net 13 "Net-(D14-DOUT)")
+	(net 14 "Net-(D11-DIN)")
+	(net 15 "Net-(D10-DOUT)")
+	(net 16 "Net-(D11-DOUT)")
+	(net 17 "Net-(D12-DIN)")
+	(net 18 "Net-(D15-DOUT)")
+	(net 19 "Net-(D16-DOUT)")
+	(net 20 "Net-(D17-DIN)")
+	(net 21 "Net-(D17-DOUT)")
+	(net 22 "Net-(D18-DIN)")
+	(net 23 "Net-(D19-DOUT)")
+	(net 24 "Net-(D20-DOUT)")
+	(net 25 "Net-(D20-DIN)")
+	(net 26 "Net-(D22-DOUT)")
+	(net 27 "Net-(D24-DOUT)")
+	(net 28 "Net-(D24-DIN)")
+	(net 29 "Net-(D25-DIN)")
+	(net 30 "Net-(D26-DOUT)")
+	(net 31 "Net-(D27-DOUT)")
+	(net 32 "Net-(D27-DIN)")
+	(net 33 "unconnected-(D29-DOUT-Pad2)")
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "0bf2f80d-def9-45e9-a5d2-2cc4e713a43c")
+		(at 174.155 166.895)
+		(property "Reference" "D11"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "9999fc35-0d5d-484d-9487-67c17a1aa2ce")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "248a503f-4e65-4bd1-afbc-1c7cb05e7fb5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8026f1bb-52b8-4fdb-8313-07337028307f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a25f6de4-c614-49af-acb1-5f506c119fa9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ccbb6e05-ff86-4a38-bc04-a50fe66d1297")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/55ea532e-3871-40e9-b3df-dcad01e2a8be")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "23e963e4-8449-4d61-95c0-77eefbde7075")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "4b1d2f27-b189-4dbb-bd25-899441b2b1ba")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "ca30ddba-2760-48c9-a3dd-f80a27db6bd9")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "99a69774-a38c-4bba-9c24-ea3c54de4ee1")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "54ef6c2b-fb56-4450-ab21-c3b32050f157")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "49ef8e00-b1a2-4b7a-b224-3b3451e42f65")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "02a7463f-2c9f-4212-b4c7-da79b4c7e024")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "74ee8515-4b37-4229-9115-5fa11f7c0f8d")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "c39292f2-607c-482c-b91f-84a8e2327dd0")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "21ef2ecd-ab43-4d49-aad2-a6b42876b608")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "a928199d-c4bf-4102-9099-2e0fcf902ef0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "d966f920-6a43-4017-883a-03ca308db34b")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "d394910f-2311-42f8-b62a-60e59d5a294f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "573cb3ae-47b6-47cd-9685-e143e6500e1c")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 16 "Net-(D11-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "642c0471-e0e0-4d71-ab99-c7dcc50e36b7")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "a97f2909-5b61-47ac-8be8-db4dc5c5e7ef")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 14 "Net-(D11-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "8ccba663-c1db-455f-a257-a8ee104f2d70")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "125fe347-c779-4dbf-add4-e5b69b8f2dc6")
+		(at 371.805 183.145)
+		(property "Reference" "D26"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "3e525c7b-810c-4dd7-867a-aef1d2c2cbb0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "975686c4-9806-4a5d-bb7d-fdb8e9cfff78")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a026d59f-5871-4caf-ae3c-2da71b9434a0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6d861f81-d57a-40b5-90c7-f2980460c673")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a9eceec8-4681-47ea-b34a-2527e4229aca")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/635b59c7-af14-4b5b-a02a-2a6b62430c64")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "a4bb479a-c72d-4cf5-97d8-7c9085992f54")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "5ef780a6-0102-4ee1-8097-5f754e6f9e00")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "97b3db5b-f773-4905-be94-2781a83d8de7")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "72819072-994b-41a6-8828-e9710e9ae374")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "4632f894-7a66-4c30-98c5-c09e25ba87bc")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "686d67fe-c3c7-4982-8906-d406da90233b")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "46ff2ce1-8755-4443-bbd7-d42da77366f7")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "4344b13d-5de0-43c0-b6ef-290655367271")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "4ea15258-aa91-458c-9a60-fca0f966545f")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "41330b76-5b1d-4ae5-b700-0651c6bec220")
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "76e38491-2db2-435c-8d04-c2799cbdeffe")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "d763f17a-e547-44f1-88de-dc35c40a0bdf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "aa74fb80-aba6-463c-a949-b5cd8ae13dd1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "cce91566-eaf5-458f-b349-847a72d5153a")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 30 "Net-(D26-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "90bba8bd-e8fc-42ec-b914-ad4cf47834e6")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "65d7f743-0f8f-4ebf-a3f1-0cfc9e5a226b")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 27 "Net-(D24-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "c3399a0e-e4e4-4275-8cd0-40e9e683e119")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "18a99f7b-8985-4c8f-997e-35ced8a1a8a3")
+		(at 86.205 222.945)
+		(property "Reference" "D2"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "9d95e92a-ade4-4af2-9350-8e9598e16ac6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "83f0ba95-691d-4272-a80b-7d8104d06fa0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "864e8d3c-2fed-48ac-a2f9-ba1d78e80aae")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "08ab173b-75b6-45eb-94f6-5050a6b50007")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "035cae4e-2285-4fd0-a9fc-63a67fd88173")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/da47627c-68c7-497c-96bf-b4b0cb3ef05b")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "361a3f04-db18-4de2-be35-34c1cfa11d77")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "36a1da9c-9d1c-465f-9cc8-a1043d3b8d01")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "bead76e8-669a-4adc-868e-6a3052e71306")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "48534d87-851e-4ecd-94f9-e2847959776d")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "d3ac304f-072a-45cd-9ba4-5b39c744f566")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "02262c28-3ecf-403e-9352-6b417ef0960d")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "29fd87b9-fc56-465b-81bb-2cb5795af63c")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "ebb4b9c3-f16a-4947-bf8b-0ee01ea39706")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "a4428007-032a-4a4f-b765-27ca2f7494f8")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "293a320b-b301-4c30-bfdd-598eeb588d68")
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "4ad2769f-b348-4f54-af94-97893127a5ff")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "8252d875-d5c5-4696-bc78-9264d68ee8d4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "992edc40-88a1-4c85-9601-cf97facd6404")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "5d74cce5-a1e8-4898-b8c1-bb037c9b5e72")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 6 "Net-(D2-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "55ed2a40-5b56-404b-aa4b-0bc0d50b4c8e")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "fb3aef3e-7c88-4ce2-b922-5135ccd2b44e")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 5 "D_In")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "06c79164-930a-4b81-86ab-8d5ffcd0a008")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "555a8985-5f7c-4144-a696-9136a31dc080")
+		(at 327.85 217.375)
+		(property "Reference" "D23"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "1d9ef32d-abdf-4b60-8f83-2bce4f525b92")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "aced2804-f4b7-4a7c-ac32-7a96d813d39b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0d9c1ef8-afb3-4686-bbb6-f3e8ee008f75")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6d7eee68-c118-4d68-86e5-301223a548a0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "869e4702-3788-4550-b93b-61d3297ed7b4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/b441c604-916b-4fef-bd02-59c1a11950f4")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "bf47d22f-882e-4476-b8d2-7779cd89a60b")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "42f5cab6-deca-4928-a043-c705c2028569")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "f93524ff-6fef-4a7f-84f3-ce6b7698da5e")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "61d22f02-22d6-488c-ab4b-940d5b3f1260")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "ea3ca966-5d84-4841-bf6f-7213aa709866")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "0593e30d-1f6b-472e-8d02-29abf47c9f3c")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "12df4d64-ed42-4990-8c12-f03375af18d5")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "13e67906-d4ba-41e4-a9a6-00df1442f35b")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "76f67f6d-f327-4c2e-8597-c74172ad1f11")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "379d9b09-805b-400c-a206-23b16d763ea9")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "105de5c6-c1e9-43d5-87f1-7175dbbb8bfa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "d2ca2c93-5e29-4c79-ac91-848fad69e767")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "52e35117-1dc5-4708-aca4-345d6b4534f8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "5277b981-c236-42c8-a022-a96e3be8e701")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 25 "Net-(D20-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "e08e6a7e-279d-4523-9012-be5f9366e233")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "d639e26b-2da5-461f-a86a-9e2d0ce2ce0e")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 23 "Net-(D19-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "3846a453-36df-4139-bcd6-08678721562e")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "5a861e6f-ccb2-4d2d-adb4-6b3e772461d8")
+		(at 106.03 237.195)
+		(property "Reference" "D1"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "8fb306dc-6f51-4c65-9590-cf3956e54718")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "faf3ce14-8f99-49b7-8820-fbe3920b26aa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a500c912-5484-4ae7-bef6-4c9a5793f33e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1db748a4-b050-4890-8b4b-2f5e04711651")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "439dc24e-4690-4acb-b785-08ee186c9e2a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/cf45649d-e26c-428a-b71c-ca375bf19f1c")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "ede711e6-309a-49d9-800c-b860ba45faf4")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "ed23e932-4a17-417c-a866-c914fe84bf83")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "ae82d241-1ae4-4acc-a961-b45045115576")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "4de28608-3b3a-42d8-b83b-0e355f04c8a7")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "502bc0ed-6d0c-4252-a037-0644963b50ce")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "1dd1bbe4-8e79-4227-8ee3-2ac827089b97")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "2af22796-dd50-4cb7-974d-6403f3b7126f")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "f6f72465-9c80-4a10-85de-faec6cf64761")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "999c5198-0eaa-4388-be88-3b5f599f99bf")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "ad75a06f-3a40-4086-aa10-aafad2512502")
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "b14cfd57-2aad-4362-9c90-8d514286a661")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "e7caa92b-1974-42cc-8d26-9a654f34e37c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "d3d91f07-eba4-4917-aed9-7f142bee2268")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "a05f5ef0-ab67-43b0-9aa6-7cdac2da343f")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 3 "Net-(D1-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "9d59e70b-38a8-4d4e-a1c3-174a7115c59c")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "889a70e3-afde-47e5-a3ef-7f35a5248039")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 1 "Net-(D1-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "690b1a5f-4cf9-47be-951d-5d9623ec3ef1")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "5da05400-0591-44f2-8889-fa15c3546704")
+		(at 301.605 181.945)
+		(property "Reference" "D19"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "f6f2fe91-b781-48e7-9a10-053bb4fe7de0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "9722430b-66b2-4271-97ac-3c5de2b9c60b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0a06dd6d-8810-430c-95e1-09b7d1a570ce")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a8912430-8994-4cf3-b69e-f84902f0cd50")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f9185da0-3365-4505-a6b0-cc6d7f32e8d1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/75edbe56-32fc-462f-b105-d4bdec643663")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "7a083180-5bc8-40e8-b278-3c1fcdf5d8ce")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "608e4d49-bbe1-465c-bdfb-853a57d0c650")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "e93ad71e-4485-4555-923c-c404095aa665")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "678b9835-567a-4640-86b0-cee63473a2f6")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "9ed505e8-722d-4f9c-8fd8-d7cf49035ff2")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "c002459f-0bf8-4b4a-94bb-57684243dd8b")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "1f961b95-e625-4be9-b643-2c0011d1b530")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "4e8d890d-3beb-4887-a013-c202e9c507d7")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "f9a678a5-6a67-4987-a190-218743891119")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "b552c8a5-42da-4a39-aa13-cb5c61385b0b")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "1dce1835-e9b9-4ff9-85de-e64d0fba67d9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "8f4b19af-376b-41fc-a215-3fff918d65d3")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "653acd65-7259-437c-9289-a1a0477c1af6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "22a22f84-6227-400a-b755-75ada4137181")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 23 "Net-(D19-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "c13c04f3-3b21-4c99-bff6-7bb3cd7d1591")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "74f5d6db-c5e8-422a-970d-7ed640eedb0d")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 21 "Net-(D17-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "0044997e-f79e-4846-8d20-38456ed581c0")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "64497930-4782-4c8e-832e-214a434cdca4")
+		(at 154.53 221.945)
+		(property "Reference" "D9"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "9a866f10-5a93-49dd-9560-a4c540eb3282")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "ea66a4ab-e790-47df-aa00-3df20f93919a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e858756f-025c-41f3-9daa-404cf214e98f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "42682bea-729e-4bbc-82d4-a26076028080")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0eedc585-7b31-4598-8dca-ecee569d0dbf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/01f79556-e389-446b-885b-b2451d5698a2")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "17c347ef-6511-4fd0-bf22-7a73da44abf4")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "27630399-1ee5-4d27-8685-fa9e0d39b75e")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "7a12e840-2222-497c-ad4c-c691f21d3e7d")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "b09da4f8-2a39-4aa3-b61a-7de35c84c4d2")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "44e1251c-f650-4977-9db0-b6113fe1e23c")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "c88c634a-8911-41e3-adb4-d91f079aab94")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "16985dec-da91-42f4-a23f-25669d422e59")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "c0bcc351-d372-4321-b647-d4bf13b99b2e")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "47cc5627-3395-4bbf-9781-37dfbdc8b88d")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "6168ea0f-dab1-4acd-80fc-51d89b1f66c1")
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "6cb646a5-2417-42a9-bf50-c510769479a2")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "7c9d6697-566d-43e1-97cc-0d12618d363c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "5a138e39-b198-461d-a461-2d43cfa14de6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "5803a94a-bcc8-4a1b-95e6-fb4a006be038")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 8 "Net-(D4-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "d625496c-650b-4273-92cb-ca8766b6f799")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "9f52eca5-8cb4-4f62-beea-6c8df986c6f5")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 15 "Net-(D10-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "5d3ef7be-20d1-4789-9e91-7e10dbdf047f")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "774194de-3fc6-48dc-9636-4aa4ec67ee2d")
+		(at 352.4 200.2)
+		(property "Reference" "D27"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "36018aa4-16c4-46f2-8d59-522a40e58cdc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "242f0d41-0fc5-4fdf-96aa-275574c1ff0a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "371a0736-d387-4998-b313-b3891186fd1f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ff325f4c-d053-4031-8924-fb94d48a2098")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0831721f-7b2e-4b37-9646-f97a60b5c0d6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/c859828d-c956-4a43-b7ad-1b63df43a03e")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "21819d72-5cb3-4ea1-b5f5-2e81700f3c52")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "fb8d0394-a1eb-4973-80dc-23f9179e5f48")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "0e1f3688-9dc3-49b9-869c-31e6166077cf")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "5976858a-c1b3-452f-a591-df5cbcfea6b0")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "f85be7ba-d3dc-427c-a479-d5782bd93130")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "6cedbc4b-563f-4f2a-b77d-322c8b961592")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "1fc06b1a-c1cf-40b5-84c4-65ee2bfa06b9")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "65e3c378-460e-4635-bfda-00367abc9ce5")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "8101ca20-d055-4a2c-b067-f1ff7a3d7ef9")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "04e062d1-e015-43a0-b87f-2b1a1edd2229")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "1b965659-c1ae-4e71-adea-279118447fa7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "e402a401-36f4-466e-8686-fcf4ccae4df6")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "3dbcfaae-d646-41a5-8a56-01d5fddb0c3b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "f8a616e2-60ce-4393-a34f-70db98e950dd")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 31 "Net-(D27-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "56ef1cda-bfc5-4b93-8b91-0ae261993af6")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "0b2cb51e-a7eb-4887-8ae7-fb2f322af81e")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 32 "Net-(D27-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "d5695ae2-bc58-4198-9b1e-1b3118943354")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "7c138efb-267c-4eb5-a011-45f076933b8e")
+		(at 352.875 231.775)
+		(property "Reference" "D22"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "a2e43373-ea31-44fb-9880-f3a317a69a98")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "5e8ca781-48fb-4943-9a1d-8542f047f485")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e9d98298-01ad-4df1-92c7-ee02dc35694b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "483d2026-78bd-4638-b615-239fedd60654")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7c117447-014d-4ed6-b7e3-6b4591c5cf4f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/1b533ceb-38b4-4bad-b65f-98325cb67a77")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "d37c53d3-d396-48d0-90cb-00175468c7ed")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "31d24573-6584-4ff3-a39c-46de866a2a52")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "1f431f64-ae99-4e38-8a41-dfcee6a18d4a")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "46cb0a46-4898-4b82-893f-b48661f1a834")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "0ee9e021-d028-4c99-8a8c-4f16c0e5ddab")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "776c25ae-6a35-414f-9ae5-c1b795423ee0")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "dd2f5172-27dd-46ef-81d7-dd5edc83b4dc")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "f0e4b96d-a651-4ea9-96af-326e3ab6c11e")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "e6950379-b4be-43bf-b3ea-5e1bffa9a861")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "6d3598fc-484c-473f-9f9b-39b02ec65b29")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "c0bf6072-a99e-4ae9-967b-1cbaafb41ef6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "ce302fe2-aaee-4e7d-9cb0-6c2ac118da57")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "1d2a3ea4-5de5-43f8-bf42-762bb7360339")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "9ec89eb3-e757-4767-b115-96bbfb51dea1")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 26 "Net-(D22-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "a0ef43ae-f619-4fc0-bfef-bf2934efd669")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "9392f9f8-4a65-425e-954d-aac4158a0cd0")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 24 "Net-(D20-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "f826c55e-a567-4283-8f09-ce1792f8b869")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "7d1bdac9-b5db-455e-9333-e46267fb5eab")
+		(at 374.75 216.725)
+		(property "Reference" "D28"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "53c09224-284d-47d9-8a64-0604ee0d9b7a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "8b9f8cc7-cc9c-4f85-bfe7-63955695353b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ecf2a202-faaf-4396-a85b-637f92b0116a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c3f0797d-9315-46b6-ae64-26f9909615dc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1eed3ee0-7518-4831-9228-f6bc61c94ee1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/cee57268-03f7-4cc4-b4cf-119e64aa4236")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "e67f0c79-dbdc-42c3-a04c-8b4a1039d958")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "2ac59536-4d00-4260-aae9-e550406faf9f")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "dadedc34-3345-4e97-878f-707254018008")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "817d5128-46ff-46bf-a987-d00e6b1f11aa")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "b8d6c7bc-c4c8-4cd1-959b-ebaa1341fad6")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "f3d2c151-c233-4b48-8a2f-13f1a24a9b6d")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "9957db0a-7660-4d85-9aa2-5ddf24dd4dca")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "dd85bd5a-a685-4bee-914e-6e81a0e2564a")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "96202bf9-22a2-4a41-9be2-2edc67f66231")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "06fdccd5-60f6-4e0e-aebe-02b769af47e1")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "6af3c0bc-f351-4285-a82f-da8c587d1e5e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "80546cf0-710a-4b64-84db-729a424291ac")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "f0afa53c-9cbb-4a96-a7b8-629257306aaf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "f3c6cb96-e2ce-469a-839a-74d3e409f7f8")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 29 "Net-(D25-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "8ac3d6f9-0103-460a-912e-8247e99c21d8")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "9680d517-04bb-4ade-a4e8-69b924e812f3")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 26 "Net-(D22-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "77e3ea4b-d926-4016-8a2f-88de2c5d58a0")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "877daf69-7107-42e0-a18d-6a56c1a8efa4")
+		(at 126.275 223.2)
+		(property "Reference" "D7"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "48d817de-5217-4fc8-bce4-597725b5f94c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "1aabf654-3b42-425f-90bd-96c599525104")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5ec2d081-26a6-48a1-94b3-1f21e20ce76a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bb6b1768-9ad4-4c9e-bb3a-d698c4d2213b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "79d5b3ce-7ff1-4bb6-84aa-26ae6928ff49")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/31fdcde0-391a-4bdf-95e7-5b39b1118f6f")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "a47c1fc4-5019-4533-8d35-5c0776e37081")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "f63761fa-eb3e-4cac-aa69-93c339c9fa9f")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "7af35ea2-8ad1-44ad-9990-8c38caa5e8ec")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "224e5055-c411-49ab-ac22-73faaeb2f1e0")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "e1b18333-4248-498c-828c-59e64e8f7462")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "2849e3fb-162c-4a16-a265-a3549a653244")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "83425d32-83e2-4234-92d0-db94d0e41cd5")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "04eabe1a-8b3a-4dc4-b66a-a14cffe0e094")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "52dfc1a4-67b9-40e5-85c0-94c1b45a2987")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "9fcfddf6-9c8b-41f0-9a80-081fa3277829")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "0bf428cf-ea22-45d1-98af-aca71737d1e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "a29b1476-96cf-45fe-8c90-9b1d65866b4d")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "39777e2d-0c20-40b0-82a8-2f748e53812b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "86ac4e38-e9ec-4f60-85be-a5a90075ac6a")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 12 "Net-(D13-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "2e4e7e15-0597-4d6b-a1e9-a03ca5d58e21")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "cd4ab5e9-b943-4a04-afc7-90c324fcf3e9")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 7 "Net-(D3-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "f6fceb24-732c-43a2-8432-472b8d5c85e4")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "89d30d2e-e7bd-4b77-955d-81102668278d")
+		(at 189.88 222.795)
+		(property "Reference" "D14"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "a92aa83d-d0cd-4871-95f7-0cea647e8b7f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "18641ae5-e2ff-412f-bfde-615ccb292a1f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8dcf06a4-18cb-415a-93ee-bc63953f1d37")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1f96df1d-e623-4f17-8b00-8e1059970e51")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "42ef6255-0cb7-4b93-a84e-47e6e7a0f7dd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/7a13beec-df47-4f47-b9ff-771d10edd02a")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "bedcf1aa-bf68-4985-9731-13cb689e148a")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "43ba10ea-99b9-4c71-bd46-75629415d70d")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "915ec239-4059-42a0-a44c-cf8fb8e5b8bf")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "afd2ba11-5cb8-420b-801b-8b028291b7c7")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "c8355bc1-55f1-45ce-bdfd-41a807e709a2")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "000ad372-f49f-49e2-89d5-b86cd4251096")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "cb8febfe-3934-442a-85b8-7e53c460e735")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "7e47b7a1-1985-4edb-a665-ef14edc5ce4f")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "469e89c4-e0ec-4f28-9bd2-7fdc8f049862")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "01b243cb-4acd-421e-96be-d89215e31dbb")
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "7b026240-76c0-4f71-bd92-fe08ce72f876")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "bd84c85a-9836-4523-84d7-8a95664d1245")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "1dd8e0fa-37db-4025-a6ab-fcd7b3cf5ab7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "80195303-3d7f-46af-819f-9aa46f46039c")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 13 "Net-(D14-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "cdeaea8a-0526-43ef-8d4b-46ab813e6c4e")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "57ff9fb5-8f90-48c1-aadc-5f487c52e428")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 11 "Net-(D14-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "da6320ce-a92b-4c9f-87b2-866ab8fb8a95")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "8be55e02-3ebf-48e6-b0a7-20643a3bf65a")
+		(at 226.8 192.55)
+		(property "Reference" "D30"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "1576efe6-4b8a-433c-95a7-7f0a907a0a01")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "701b158d-820b-4469-9f1d-f710f3740afc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "393197ed-bbbc-4a2c-a12c-828c7fcfc5c6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d12b775f-fa01-41c7-a44e-020f8c1352aa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0fe132f3-827c-48e1-811f-768d95f04c44")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/2c68ba6f-cc9e-4d76-92b3-4e12f6c7cfe2")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "03ca1089-e8e9-4542-9dfa-2e47734a28ba")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "f8ac2782-ef68-4230-969f-fd59266e5da6")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "70c59ec2-3c35-41e7-967d-f24f9270cd85")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "d8d4fee5-ff61-462e-9cc5-3b538c43f628")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "f441220e-e332-4d4f-9611-6328faed6d8e")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "84d8ec48-164c-4b8c-abe6-70f602d959fa")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "50555b8e-310b-45dd-b65d-69fab6de1a56")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "a67b7c09-8e29-4a2c-bd54-3d8bf10d3055")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "c263601e-7c17-4fae-a581-5bc42df3b33d")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "d2cc373b-d774-4b05-974c-5a1a855dc912")
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "3ad13836-a797-46d6-ab60-f0f25d17c61f")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "54258b68-24a9-44bc-9596-dbc859ae7ae5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "5f859fde-8f34-411f-bc00-99b82ed49343")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "6060116e-daa9-4bb1-819c-39469e77426b")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 32 "Net-(D27-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "cf727585-4d67-41d3-9b0d-0f3a08716e60")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "cfe7ba9a-3d98-4b50-bb19-7b9fa2ded4ef")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 30 "Net-(D26-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "7641cd5f-899d-4924-8f18-2343f2f2899e")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "9565aab1-bd3c-4370-b0fe-a8bb68a9b7a7")
+		(at 351.53 167.245)
+		(property "Reference" "D25"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "9434fc9c-749d-4bf1-91b0-9957747a6961")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "2e2b1c5d-3660-4889-90fe-dbc3c435fd12")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "27765fb9-3366-4cac-a31e-d87e89837373")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "56e44a5e-8b76-4a40-a60a-6aa59dfaa2fb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f3095cd0-a20e-462b-bc08-3d09d33293c1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/c4037af6-03e6-4e0d-8430-cf262d10c753")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "b971055a-23fe-4188-87de-2e0b155a918f")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "3396671f-0ba7-4c73-a528-18b76a3d1017")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "9ba68bec-cbf5-4027-9807-5deb32c73d51")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "16bba21f-c09d-4d7b-9be1-9cd10e2957d6")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "c4a95307-2fc8-4b06-b996-e6c5fd5e83fc")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "4031e264-cd2d-4247-b0ef-0d9df476bf59")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "ed198ecf-7ccf-4660-bc98-5ba68f8f2fd2")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "514d1888-e7cc-4e7a-92d9-733a1ef6edbc")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "617cfacc-0eae-44a2-b181-b53ec676dba5")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "698d96cc-fd0f-4c4e-80e8-69018279baac")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "73ff018d-b730-45c5-b9f7-feb0c5d7d586")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "a41258b4-0710-405b-a5b1-d661cb70619c")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "2d0182f1-0c51-447a-9f69-17808c529ea7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "53d85cab-598f-406a-961c-65321bbf51c2")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 28 "Net-(D24-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "2aeba21b-aaec-4486-9e99-eacb69378927")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "1a49ca45-ad99-4698-9f44-452fa5f2144d")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 29 "Net-(D25-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "17857c15-2ce9-4afe-97de-28abcdcdd3a6")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "96b71422-cc50-4ba4-9651-e5ac9cb883a3")
+		(at 303.405 216.87)
+		(property "Reference" "D21"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "3431ab59-867f-4386-87db-5b7074378e7e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "91913a8b-7e72-496b-9aec-a854a806a9f8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e5bb1921-5eed-4a0b-84bf-35f140653d1b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "eb48a686-4d76-4a55-96ee-c9d04cdf19cf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e91d93a4-f3cd-47dd-a78c-9a9fcd5c1094")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/73e3548e-d791-4066-a37b-c4d880041d3d")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "b9540a83-6f03-478e-ada6-9e53b7088c4c")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "149e919a-ca06-4468-958e-0e9ca54c24f3")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "18b7a46b-13e3-4a8d-b92b-9b674758a1c3")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "2992ceeb-52f7-40a0-964b-cfabc99cf846")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "ca77bfeb-3126-4db2-978f-c03e959cab49")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "dac05f13-6a7e-4c6d-8484-c14aba4e1b2e")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "7a517800-df6d-4e81-8b23-e1816fc2f94e")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "bdbba40a-7a26-4089-a471-8f445fdf2c3c")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "d277bab0-9c8b-44ff-892a-a574a1dadb7d")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "eaac35ad-1117-4ca2-8a5b-e8bf61ebd681")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "6afcd45f-7b0e-4f33-9ec9-7730784dfebe")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "e1139e09-ad2a-43c7-bb81-10c7b16ec0a2")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "08f3e05e-0edf-45a3-921b-febed50420a8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "e932a57e-77d8-4a37-a08a-23ec6ced2f58")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 22 "Net-(D18-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "60f70d23-dd22-4462-becc-588a2f1045d8")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "c207a855-737e-4d01-9c8f-8430c19ccce3")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 19 "Net-(D16-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "fd2ef75e-092c-43b4-9164-50551bab9c5a")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "9f820418-6fb8-407a-81a3-396dbf9f05aa")
+		(at 191.155 184.945)
+		(property "Reference" "D12"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "f79f3a09-476e-4069-aff1-99b4031b2bd4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "deba678b-323c-4a95-9e67-7f45750e823f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "51e04dc7-393e-45e7-aeea-2737a864d9f1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "acf7978d-4081-4d94-9964-7a6aa9e35c81")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "db3c1ef6-e744-4dea-b240-a433640382df")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/74ac8ff2-da4d-456c-99de-1bfb13c3cfe1")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "da61cac7-cfd4-481d-920b-cb20c9855c63")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "fadf08f5-a812-45ef-9454-ac79ca0499a2")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "6857e011-ccb0-4a5a-afc1-61807e95baea")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "b3dc47f6-09e6-4974-89c0-f7868882678d")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "81899ff6-c109-4108-b86c-0db87fd2d345")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "a2e099a7-e643-4b5c-a7d9-0bb39e4ab058")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "a1fdafc4-7cf3-4d7e-b7d7-504490871d97")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "610cc5b7-2cdc-47da-aa1b-620f0e51e2d6")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "1df6d4ba-2a59-46a1-95e9-b42a711efc9c")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "523c2f05-e1dd-4d8e-baf9-80127d0623dd")
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "4fca581f-03ca-47ba-af0e-652949701823")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "5ebb9d36-27f4-4196-9d85-758fca0c8549")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "8e9f3b00-cb96-4cb3-b4fd-8f5416f40a3a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "2bf279b0-c994-435b-bb7c-899eb46c5bd7")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 9 "Net-(D12-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "215ce171-cff4-4f55-b62e-2c46296fff78")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "37a39974-1e74-4ad1-b29e-2041cf178b80")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 17 "Net-(D12-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "71b1059c-6a2f-45cf-ae21-4b214454b2f8")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "a300bdac-5a27-4a56-990c-f64389bc9174")
+		(at 172.63 205.095)
+		(property "Reference" "D13"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "06fadb43-497d-43f0-aa19-ec8743177db2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "d0ffa68e-3c80-4ad5-a3e2-3a6981e189e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "97f82b5d-f2f4-45df-a382-df7a64b90291")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d555c719-1d43-45ef-9b69-1e04a199661f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bbc17945-3ee0-4410-9604-c2c2ae8517ba")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/411f5db9-7f70-4088-b026-4a39784da61e")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "13c5b058-84bb-4a79-980f-041b95f449fc")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "d8d1098b-0bca-40a3-9079-a2fd1d90e131")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "2a7460bd-fcc0-4dd4-a716-b2c54fe8d472")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "47ec0f7b-67ef-40c9-990f-e20afe60f8e8")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "78092e40-1d8b-4378-a00c-e394ffb5fad4")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "6ed90224-11f4-453d-8f4d-72629ae152ed")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "b2a29aaf-8c0b-410d-8a7b-41103a788dce")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "2c35567b-92c9-4838-9221-79646f4c5ef7")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "56c1e481-f373-4476-af7a-f3e199525c9c")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "0b075af6-dda4-4e63-9df6-0301f59f8a8e")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "d973b83f-85dc-4ed4-be5a-b81a28870bdb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "f6441ac8-c98e-4452-b7a6-b022a476bfd0")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "eb746429-592d-45ab-a91d-b898dd7dbd5a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "c917198c-d305-4f96-8b23-d1e1ee68b834")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 17 "Net-(D12-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "9cb8ac54-7258-4eb1-8110-92e97f40c38d")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "17624137-2d8d-43cf-a66b-c70e181db3e2")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 12 "Net-(D13-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "71657c34-0054-4ec7-ba77-a6ce9d407182")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "a35a55f6-28cb-488a-9911-93020d27f49e")
+		(at 85.855 185.32)
+		(property "Reference" "D3"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "994bf7e3-ab8b-420c-a4dd-694509d3fcf9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "2309639f-40b1-41f8-83b8-4d5469a70e0b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "997c2e41-c378-4dd4-ba22-a1d6e02ec7aa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bc171cdc-7a6e-45d3-b36a-d245d1ba2621")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ee9a65f4-6d02-43e6-86f6-9b402eff4b3b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/678340de-81b2-43d8-81da-3f54ba5b60ed")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "8b514844-7582-4a08-82f5-42d5e70d09de")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "b4392f3d-b476-45a7-9d05-b82c48ac25f0")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "0adf2274-80a2-44ff-8eeb-47fc2bf6192a")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "8c3b0325-7c43-46ae-a539-d4e42694530f")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "4ea9e0dc-ab57-45a3-be38-69f478114f03")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "6e5a464a-f0fa-4af9-8d93-5d5630a37a8a")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "70035907-835c-4d26-b2e2-67d8fe7c01c9")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "f07f1149-8a6b-4443-a356-e808f1fd10bb")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "99374ed9-f590-4ead-a89d-58d6d35bc050")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "6457ecd3-bda5-4185-83bf-f318a3a160ca")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "1c9fab61-4d1b-4a4e-9456-1c10ec9a861b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "520ef4e7-8842-4ae9-ba87-1608da9350fe")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "c55eceee-3c5b-475f-a662-7f3177a7953e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "440aebd4-bc61-4ac9-a9d1-516bed9c0bf6")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 7 "Net-(D3-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "1469e3e8-6caf-4d58-8021-5e33862895c2")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "2fd74fe0-b4a2-437a-929f-989c2052464e")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 6 "Net-(D2-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "b91056fd-a6ac-45a5-bf66-56ac558f806b")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "abf3a208-0c65-45e0-861b-55ebe0b49bf4")
+		(at 263.35 219.325)
+		(property "Reference" "D16"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "b0d3c7cb-5ad3-4208-9889-0ee8970c0f15")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "9430fd68-b3fe-4183-b23a-3406b34ad4b2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fd0522a8-1ace-4f26-97b4-84e454325ca3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e37635d0-4a0d-4f26-987e-d3ea8329c368")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3278bcbb-d2d3-4f13-85bb-e7e19133d7c6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/4922efc5-64e9-4190-ba49-251229b4d311")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "28ab1866-2c02-4577-ba3b-7ba34fdfb47a")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "ba82b2cc-7170-40c6-b72f-e48126d38d60")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "a194b32a-5a53-4e69-886f-d6f8e3ee63f7")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "a608dc5c-aecb-4b76-adbf-96825252fc90")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "c3c9bb73-39ad-4c94-8582-a6b615396745")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "98b35f94-1615-419c-9c25-c9408a0614bf")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "32c0a9c6-fa6e-47f4-9ddd-dd4f8c392af3")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "949e569a-cddf-4406-af06-d3b6d1d5f988")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "925f9ad4-6cf5-4fce-a6c4-5c84114ef667")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "137798db-a9e0-4ef0-8aa9-ab5a6763cc55")
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "02a83d43-bde9-43b0-818f-bc4a1f010588")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "5037cfaf-c81a-4fac-a610-01765d361b5d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "1a228449-ffb3-4aee-84eb-97472843e4b3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "6c116181-3b84-41ca-af25-d402fb4b43f5")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 19 "Net-(D16-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "1febee1a-61e8-465f-a90f-80f70165a537")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "1331b652-cda8-4f45-b0eb-54e01e7ef8ef")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 18 "Net-(D15-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "5cdd414f-e1f2-4103-b1b7-235bfea70004")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "add6cac9-0760-45af-ae73-c7b7064c2ae4")
+		(at 104.05 167.25)
+		(property "Reference" "D4"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "8d04c18d-71c5-41cd-a477-17c7e8c762d7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "e9ef94a3-d250-4b9a-88db-8d2ecaf77832")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6d3fb9e6-12ae-45bd-8287-6dfa07812858")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f054e5d0-ecb8-4d34-b429-cb8dfb131412")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fbda6cf6-a3b4-473a-84d7-351a4da145aa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/30cf28a9-6e02-4790-9f04-1c8536fe0bb4")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "196f8b9f-17e2-443b-af5c-68b0add1ee15")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "7a448780-e317-4e71-a959-90464a28b04c")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "ab6a2a49-94dc-4223-bb9e-dd2bb1d682f6")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "dbd1c182-64a9-4f2c-9bb0-579a2c2c68fc")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "5d73e371-f0bc-40b8-aadf-5f4eb8b70d58")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "d34f85fb-6012-49ba-9580-f342b3d07aad")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "c4bb08bc-bb54-49b5-829d-484716270804")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "6bdcf5f4-8138-43e4-a7e2-669948d0eb84")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "a300f199-5f12-4a4f-8348-302b55268425")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "d1011d1b-821a-43ad-90a4-979ea861ee3c")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "5a7caa7d-649f-4c3e-9bf7-f0e9389201cb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "8680b47e-bf78-4006-9156-62362ce7ccf3")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "5a19f3f5-fe72-4372-a930-fec6e5e811c2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "e585f4a2-38ba-4eca-a201-b9a74527bdc7")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 1 "Net-(D1-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "d8701aa5-695b-441d-959d-add0266c7b92")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "0fb0cd1f-3c33-40f5-906a-b60368d2528a")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 8 "Net-(D4-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "53cfa5d8-2a00-471f-a5ba-6f4aba1a2141")
+		)
+	)
+	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+		(layer "F.Cu")
+		(uuid "b4045123-66ba-4547-8a25-233efb4ee3a9")
+		(at 225.57 256.825 90)
+		(descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
+		(tags "Through hole pin header THT 1x03 2.54mm single row")
+		(property "Reference" "J1"
+			(at 0 -2.33 90)
+			(layer "F.SilkS")
+			(uuid "5a4f602b-cdd7-4c98-bbdf-bc2c2a62a96a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "LED_connector"
+			(at -0.025 12.7 180)
+			(layer "F.Fab")
+			(uuid "2e6706da-e5df-4076-958a-9bd726e6b1fa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e4ec7d54-2017-4977-989b-8cf359e6f023")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1a4e4d6a-abc2-4de8-b0ca-5a72b939b14e")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7b55cb1e-14e4-4cc0-a246-22d2f8fba128")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Connector*:*_1x??_*")
+		(path "/70f8a03a-dbc5-4108-b945-ff0d4968d02e")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr through_hole)
+		(fp_line
+			(start -1.33 -1.33)
+			(end 0 -1.33)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "bbc5373f-863d-43d4-a8b3-d4928ea25e77")
+		)
+		(fp_line
+			(start -1.33 0)
+			(end -1.33 -1.33)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "708ee0c8-2c9d-4129-ac9a-616cb4010e8c")
+		)
+		(fp_line
+			(start 1.33 1.27)
+			(end 1.33 6.41)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9071a331-d2d9-47f0-8fe9-f94e0d9c47d8")
+		)
+		(fp_line
+			(start -1.33 1.27)
+			(end 1.33 1.27)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a07cb507-1076-4d88-81a5-8769b2995610")
+		)
+		(fp_line
+			(start -1.33 1.27)
+			(end -1.33 6.41)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9f7f36be-cbc3-437f-9831-03a5bf1b03dd")
+		)
+		(fp_line
+			(start -1.33 6.41)
+			(end 1.33 6.41)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "b135660d-942b-4df6-811d-513f05d76d94")
+		)
+		(fp_line
+			(start 1.8 -1.8)
+			(end -1.8 -1.8)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "68e9beb7-7cc7-45ce-8927-2c13674a0183")
+		)
+		(fp_line
+			(start -1.8 -1.8)
+			(end -1.8 6.85)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "c5ebca50-a489-41b7-8058-5744f64fff68")
+		)
+		(fp_line
+			(start 1.8 6.85)
+			(end 1.8 -1.8)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "d91adee5-782a-4dc9-b83a-93b0b98045de")
+		)
+		(fp_line
+			(start -1.8 6.85)
+			(end 1.8 6.85)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "db14d794-717d-4dbf-9fd6-9c516e53d04a")
+		)
+		(fp_line
+			(start 1.27 -1.27)
+			(end 1.27 6.35)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "45adad1e-3493-49f3-9f64-3ada1e664a90")
+		)
+		(fp_line
+			(start -0.635 -1.27)
+			(end 1.27 -1.27)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "ae3f7503-9555-48a1-a660-c774cc51d77a")
+		)
+		(fp_line
+			(start -1.27 -0.635)
+			(end -0.635 -1.27)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "1be4c942-d201-4dfa-9d0b-39305b5d34fb")
+		)
+		(fp_line
+			(start 1.27 6.35)
+			(end -1.27 6.35)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "297f0a2e-3c2a-4b0b-bd28-e42a2a06a95e")
+		)
+		(fp_line
+			(start -1.27 6.35)
+			(end -1.27 -0.635)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "3cf08a10-fba1-4ef5-bf25-40657d4d10ed")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 2.54 360)
+			(layer "F.Fab")
+			(uuid "943ad4a7-d98f-4266-8174-aa7574c537c1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" thru_hole rect
+			(at 0 0 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 2 "GND")
+			(pinfunction "Pin_1")
+			(pintype "passive")
+			(uuid "46ceccbe-77bd-4eeb-a29d-7251d261c594")
+		)
+		(pad "2" thru_hole oval
+			(at 0 2.54 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 5 "D_In")
+			(pinfunction "Pin_2")
+			(pintype "passive")
+			(uuid "cd0a7fa9-31da-4497-a682-bcca4a4f88fb")
+		)
+		(pad "3" thru_hole oval
+			(at 0 5.08 90)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 4 "5V")
+			(pinfunction "Pin_3")
+			(pintype "passive")
+			(uuid "55b62e8c-6de7-4458-84a6-f91ef2e69a71")
+		)
+		(model "${KICAD8_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x03_P2.54mm_Vertical.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "b49bdaf4-912a-482f-acbc-6a8a470107dc")
+		(at 283.4 199.8)
+		(property "Reference" "D20"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "e1dfe8a1-b588-41ee-8533-36c178dd296f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "a430361b-3e14-4491-a7fc-1f736fae3d9e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f88d9856-e70d-4b39-9e25-0b3384e3c2e8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4480f55d-7b97-4067-ab64-24c2cbaf2a2d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1b12db3a-7cb6-41bf-a84b-e438996777ba")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/4bfd23c2-e17f-4050-bb58-2d34c46704b1")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "c58fedfe-d318-4601-8b26-3f38660e60e8")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "c4c5fcb4-8510-4481-863e-223e2c7cf546")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "65312d79-ce8b-4765-bf61-0e8c1b2ac65d")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "4063f10f-d2ec-402e-bf8d-c5e69f4b7ae3")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "71bec8a8-5876-4917-ab2c-5aa1a54ebc1f")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "e838c48a-0793-47c0-9dd1-8cbad616ff7b")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "27f3f634-a642-4654-9d91-4224656aea9a")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "69a713de-ba41-4f43-bf7d-52900417d102")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "b4a85715-1efc-4eed-b3fc-6ae56020a2d8")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "a78c02bb-02e7-4d5b-996d-2cccafa5e1ec")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "18154817-9c49-44d8-ad6f-ea5d5b3010c2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "7f7d6252-ec8b-460e-9e7d-078bf3585f5b")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "bcf6fcd0-3913-4342-ab47-2526acd6b444")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "500e282c-2307-46a9-aa63-c12f2a95724f")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 24 "Net-(D20-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "7d8e1f44-1a13-4910-9be1-2cefbb6a19d7")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "3992673a-bb99-4695-9a01-27a2e414c53a")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 25 "Net-(D20-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "a31a6ec5-fcb5-4e4b-a26c-ba0d300c5122")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "bc898ded-ae0b-4c4a-b785-e1516edbbff5")
+		(at 155.105 184.57)
+		(property "Reference" "D10"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "bf281625-1297-46cd-a174-2e9c563ea5c8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "25a697b8-b73d-4ea4-8208-7e4a4a00474c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a9a994f3-5577-4fe1-94a6-979e5811c609")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5f42d7bf-b453-45b7-9348-0f0843ff6b9e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "77305947-d0b3-4a5e-9d9a-b664684dc1bc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/6119b64c-9da5-4730-9fd6-61426dc770d5")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "2f109387-8e2f-48d9-a0bf-2642a476b04d")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "ce90bd49-8843-444e-8949-468041c70fc5")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "244b9e52-487a-4d6f-8cff-9b616209617f")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "e325a5a6-53b2-4bb1-aea7-ad9ee7ff718d")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "1502603c-360b-46d5-969f-78b6fee9a251")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "75eba2a1-0a22-4caf-896a-ebc7e5ff3fc2")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "c5a5747d-fa2a-4041-9e17-f87f3040607a")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "1c2c203c-e4c2-4696-a6c5-53641a89d1ed")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "14db4ccc-094b-40b7-be0e-d63277c8b0d2")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "b16a995b-5cc2-452e-a22b-226ea9eb5ad3")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "64a5df7e-dc26-493e-ae5a-fd4bbfa28129")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "8809efb1-ec0f-4633-98e5-4dbfe4d43ab0")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "a2ad6b20-5914-4b95-a478-3e7c1e8ca908")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "f9915fc6-e243-4d5e-83ea-eb93e0e0804f")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 15 "Net-(D10-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "020de17a-e573-4239-b658-a2473e97a100")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "902f4f7c-0899-4310-817c-4c5a01229adb")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 10 "Net-(D10-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "2a2cfb8b-fdb5-41d5-a435-232de9fc2080")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "c011a0dc-2ac4-44a7-9454-b4fe128f762e")
+		(at 226.725 212.975)
+		(property "Reference" "D29"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "05e88c5e-f924-4cdb-9a1d-25b633aa470e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "967acee5-e717-4287-bfe7-93379d75e71c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fb111ef6-1db5-4767-89f1-d99433d793cc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "da9c7c43-2042-432d-ad18-1ea4f46ff9de")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8aa3f3f6-8fa6-48b3-a147-1340d4c07f31")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/99677a6d-e6fc-4554-8650-8d2dc905bb2e")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "b5e00eeb-dc03-4480-8779-a0f4cbd6f077")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "0daa7641-5390-4b1c-aa32-fe53c8182883")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "efd3d213-3947-4a2a-8d9e-00c52b26fee8")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "16f1f1f4-41b6-4a2a-bfcf-8940eace89b9")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "510b7ea9-1858-4c3b-b17a-8e5a07d5e507")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "21b60858-c4f3-48fb-ac84-d21765617eb7")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "e09abf02-6072-4024-b41d-da17241f707c")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "eef6270b-2674-401f-9623-34cc383816d9")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "7b9bf8c5-9ae8-452e-9e7d-ebb6dd5df3fd")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "a8f02bc2-a9c5-469d-b68b-fbd46ab1c110")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "6cef677a-4c5d-4e19-a637-a4579e7f8bdf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "8b4501ba-7a67-4520-bdde-e645bbd997b1")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "cf204151-457d-4192-9976-1fc2cbe12093")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "f5579718-275f-4958-b0e9-06a6e9ed8be0")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 33 "unconnected-(D29-DOUT-Pad2)")
+			(pinfunction "DOUT")
+			(pintype "output+no_connect")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "8852772d-aee1-4ce6-a421-d610a774e564")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "957ae78a-6e32-4dd1-9477-56ee9054c3f1")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 31 "Net-(D27-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "1f3a07a4-22e5-4e7c-93f0-d7089254e108")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "cda10ad9-94a7-4c16-9b6d-d7e42f66fc0c")
+		(at 260.88 181.62)
+		(property "Reference" "D17"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "1c4c2efe-b304-49d1-86ef-4669d81aee35")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "58bee2cc-3b52-4287-8eea-a4fe56ddf116")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3276fcea-b421-4507-91e6-b2bb8e574a49")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dacaff51-6ebc-454f-8d6d-76b412d68619")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9f9b5dcd-55f8-4a84-bcc6-06a81bbdc313")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/811d4640-2afd-43ca-8e1c-04fd7ae7a44d")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "232c3e7e-d880-47b3-99a0-0cd4af3316d7")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "41ae5a4a-7fc5-4809-bdd5-2d4107a961c8")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "3fb1431c-4def-4742-8f86-32b0402964a8")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "39d23bb6-5191-4f81-b20e-a9e7de39d543")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "5bb872f8-beea-413f-9f7f-f32636327f2f")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "dce96b13-e7a8-4210-bfe2-1dd547a7c966")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "3efcb7d6-514d-4ba0-b472-dc7956731557")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "025587bc-395a-4c60-8ef3-1c0e018c34a0")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "5c029269-6e0a-4335-91c5-e434b2fe0b4a")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "b227938c-9576-48ea-a954-cbe5092e9d85")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "58550aa7-5053-4f39-a719-7728f2c55999")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "875e62d2-302f-4557-b0c1-5d68fac22538")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "193b1ff4-7502-420f-9eff-ef166885e54d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "6f414e14-45fd-40c7-8d2d-3d4e5a145fe7")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 21 "Net-(D17-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "802b8624-740c-4c38-b3ed-ed423194530c")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "d9500a7a-0f41-4997-8fdd-a9453a383b33")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 20 "Net-(D17-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "0af1982c-134d-45bd-b82a-9f743970dedc")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "d47f96c5-6ea6-4d79-8aaf-c35613ee3151")
+		(at 328.675 182.7)
+		(property "Reference" "D24"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "28a74e61-aaee-4fc6-902f-ba4548209fc9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "ad1d60fb-7753-4419-b465-70a47dd634d1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5a3bc2e3-d632-491f-b4e0-0a9dc0ad9986")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "80db1736-1734-4f94-9122-00288d7798c6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "688535e6-3a70-4510-867a-cf3d718919ca")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/aedee61c-a386-4692-8b88-a0243f2863f1")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "a5392d14-9c30-4f94-b206-901aa2d64418")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "e4d3695c-226c-4f3c-9589-dc82d7ed8a8a")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "68aec63c-973d-4513-bc70-5274b54cf2a0")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "def528b1-515d-4774-83d9-516eb16c90b0")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "585be23d-a6b0-4f03-a038-5f6c9b774b5b")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "c1d8956a-e9c8-459b-b316-3f58a7f9de64")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "17741c28-32ac-43a8-9674-fe7b9260eefb")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "87314bd6-a445-4412-838b-2c6077ef3361")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "f5123df6-3c68-468c-a255-2c064d1b1a44")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "fbd98e72-246f-46b6-8000-f302b06284d4")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "cf1dbd90-bd7a-41cc-b035-0c1f94e308be")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "f12517da-80ec-4878-a8bf-e3461f68fedf")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "077ab1e3-452c-47d9-8a72-0355df61c1e5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "bf008521-1876-4352-b8f2-10e840c5b01f")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 27 "Net-(D24-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "167e4d14-113d-4b65-a2e4-7ca60f02ca7b")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "736e8e62-f809-4451-a10a-8dfb1431c537")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 28 "Net-(D24-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "b6bfa547-3208-411a-9045-e637802a3092")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "db111c07-57e8-4d9e-8e01-8792c2c688d5")
+		(at 123.08 185.47)
+		(property "Reference" "D5"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "e5ab3f1a-e44c-4e19-b73e-55a5d65abe56")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "a2710f50-3818-49f9-8cd6-3b700ec79d60")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "03b5f1a4-8fe8-4433-bda1-77af5683f5f8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9b09edfd-f5c7-4a1a-9e17-660e97101e71")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fdf675cb-4852-4b0e-a967-0b142e64a870")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/5349b02a-5818-4d51-9dc0-229523bc6736")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "e70e2910-1bf5-4f18-adfb-f5f8867ab8dc")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "5b78f1e0-c76d-470f-9411-a18d1fec6a27")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "b1291dfc-0a0b-492d-bebc-f9aa93ae069e")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "93f93c24-2a46-497b-8600-c2a0fd5dd422")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "761e8d64-2498-4632-99ae-222bfa68d2fa")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "2e2ce2c5-f07e-465e-ae83-b671a7519239")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "c7dd0462-72fb-428b-9de0-44752845cc5c")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "b4f5c135-42ff-4ac9-97b5-82e7c0b1db3f")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "4b4ac8d6-1c8f-42fb-9edb-02506ad0b681")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "23ff74c5-ab86-44ba-9ffa-f6fc34be4c2a")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "4cd44d8d-1ca8-440c-a865-150854445ef7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "8883a864-9e8c-4caf-9af2-8f6d5ba83b93")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "7e882acf-485e-4275-8791-3a7ab9b5b2ba")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "22ae6dca-f681-4d19-8421-d83a1f8accbb")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 10 "Net-(D10-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "c4e46093-f685-4245-a7f1-1815b1b57f9e")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "379615c1-3678-45e9-ad1b-5b3ee36fa651")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 9 "Net-(D12-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "9eab7ff1-63b5-4720-a059-3eac6c7d16e9")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "ead5cd9e-e944-424c-ad3b-95bd26b2aba1")
+		(at 282.955 231.72)
+		(property "Reference" "D15"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "c07efcbf-1041-438c-9061-7c29edc13318")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "deca11fc-cd1d-4444-a9f1-bd7982d1c92e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "877b5c0b-9117-4582-a433-9c7b58962022")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "544e0bd5-ae85-4773-bb34-dc6f0921ff9e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ec7e3ac1-f365-40e7-bbc4-d40bcc30fa5e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/c4693395-2ba1-4d2d-8301-5dd3848e9280")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "60a1c6d1-6c5d-4855-9d1d-b3a4db7ed432")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "f17a4523-9ef9-4e07-8d9f-2a10a3034f1b")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "ca967634-76c3-48f4-be61-1e659bb2772a")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "c083c87e-4a31-463b-b7e1-f52fca0984df")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "f6b3a408-5c83-4bdd-8f51-183776b7c65c")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "aacc51c9-c642-4c28-8104-fffdb8d07c46")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "cb01a002-27a0-4d62-8a3b-a573ee8d717c")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "bf0b2ff4-81eb-4e22-b225-fe3e9728c821")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "649a4e1b-124f-4f0e-abb1-fde2c9d1fff4")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "4ffcb637-2a8d-43dc-840b-bf3ba30803bb")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "42c187e9-f9f4-4770-8990-7a5705a0bce5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "98a669f6-1ef4-4171-ae01-3efb6a1a4a85")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "e413232c-82ad-408b-9e78-9ba77f3fb99b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "e079811c-318b-4190-bf9c-a613417b48b5")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 18 "Net-(D15-DOUT)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "c1d8e148-e7d1-4eee-80bb-b91cd0eae614")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "b4580b24-8153-4a4e-9459-d2060883aa51")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 16 "Net-(D11-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "372c06fd-5fa8-4847-b779-430cf11e8b10")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "ec6d63f0-52b0-4146-b2c9-318f29ddc4a4")
+		(at 172.63 236.67)
+		(property "Reference" "D8"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "9c5ef3ae-846c-42fa-884c-80ab4a9002e5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "96e1f0c9-f32b-4947-b7fa-b0e780afea1f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b1ea97af-714f-48db-b6f0-55e4a24c9f9e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "27770ad6-6e06-4583-bcb7-abccbaf25cf2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4d42a765-b7ed-4cf6-9dcb-0d86f6b6eed7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/4e423d62-0938-4873-b8df-bba1edc38095")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "c93ecca9-58ef-4e5d-97eb-e0061e691bb8")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "6d2f11da-c08e-4a6b-a0bd-6c4ce9ce70d3")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "0fb34ad2-8ddd-4076-89e3-c226eac1ffd6")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "5b9d0f08-eeeb-47da-9eba-fbfdc4ee2203")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "73de9f7b-90d1-4ff7-be79-4380d7900412")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "6194af86-233d-4084-aa8d-81e1889d94be")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "bbe66415-673a-4ae9-9e5e-f4f0ab70a0a9")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "ec229a75-a298-4231-9970-56898037141e")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "a6622d76-671c-4771-8f69-8485921bb118")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "f2a78edb-97a2-4a41-a798-68b22fb962e3")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "19fc7902-b39b-4b87-857e-aee344af4ace")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "a28a18fc-53f3-42ea-a9a8-f44bab4654e0")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "d45d636d-723d-42f0-b781-bcf36b8b46d4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "535df23e-fa95-461c-b13b-aef55de3fcb8")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 14 "Net-(D11-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "40859731-5438-4d09-8086-c9f6a9bf5b8e")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "a640ddd9-d333-48c8-8ca2-7332c30bc69b")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 13 "Net-(D14-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "0c3eb7af-ca6f-40ee-9707-e95a653cbc41")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "edc1b333-9306-45dc-ab63-18ef9a639615")
+		(at 105.53 203.795)
+		(property "Reference" "D6"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "900e2b6b-c6f4-4f41-a9e7-accbb334c9bd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "55143d28-034c-408e-a9a6-61fcdddd640d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b6568870-ef54-453b-bc58-e8f35cb2d83f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "430669e7-085e-42aa-911e-cb6f5bb1e531")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fc1e2ee5-2ade-4bd2-9a5f-9e526d515ae1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/298dd2c1-a5d0-4d56-8512-ff5a3024f3da")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "79382c9a-f6e5-4f2a-bd78-1611cba06628")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "0f1d5c69-4f20-4b86-9f04-daa75cf5aecc")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "5a47e6d6-4966-4fd8-ad7d-610b3b80ed16")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "83672f58-49cb-4e3c-a5b4-874ee50c0225")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "1dcb86f6-7052-4a4b-a2fa-74374b2f0c73")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "41ee4073-7f96-45ac-b5a8-c5a21fcdd3f2")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "ddf2e4f7-938a-4aba-8ec9-c5b85c23a14d")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "1b692664-5da0-404f-944f-1a0afa2a9fd0")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "ab6fdf02-ab47-4c10-bbc6-8a040cfc4628")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "fabb84c5-949d-46d2-8987-030c1cea8c6d")
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "0b7be52e-9f83-4d1b-81e2-4633f2d1b9cf")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "cca9363f-f336-45f3-bcc0-73704cbfad31")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "671a3800-9490-4eba-8830-dfddafb74982")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "09858949-b7d7-44b5-875e-337bce68e89c")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 11 "Net-(D14-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "37ffad02-f593-4462-a990-e3686ee8e37b")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "b0fcbf9d-1a3a-45fa-bd51-be90fdd5b659")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 3 "Net-(D1-DOUT)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "3c07f5fb-5cc5-48e7-91ca-0b9f17efe2b1")
+		)
+	)
+	(footprint "LED_SMD:oneLED"
+		(layer "F.Cu")
+		(uuid "efc01edf-f42f-4b52-8d59-40815f99dd9e")
+		(at 281.85 163.55)
+		(property "Reference" "D18"
+			(at 5 -14 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "137492be-f06c-4da7-bc41-61586f9734bd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "WS2812B"
+			(at 5 -12.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "4a24b54d-36a2-4a25-b427-50d2dcbdf6b0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:oneLED"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b8ab3417-6d87-4249-8263-e8cd0e2cdbfe")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a6b0dc22-879f-4b57-af8b-2b56be59696f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller"
+			(at 0.5 -14.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a04b3cf5-6a0d-476f-a908-2fe1181b201d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*")
+		(path "/2bf5f7e4-4c01-4a2f-b535-3b89bcd26e93")
+		(sheetname "Root")
+		(sheetfile "clock.kicad_sch")
+		(attr smd)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "c664e1d8-9de6-4c3f-a6d8-24b8b5f3b14c")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "0ee21baf-1fe6-44b7-a778-333f5e17d6da")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "d544d3d7-a956-492d-9180-2ec4948dab1c")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "7e3e2e23-e2c3-462f-881a-823b73b45c5e")
+		)
+		(fp_rect
+			(start 12.5 -6.75)
+			(end 14 -3.25)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "5d6a7efe-a65c-4ccb-969d-047156e4c3ae")
+		)
+		(fp_circle
+			(center 8.5 -5)
+			(end 11.328427 -5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill none)
+			(layer "F.SilkS")
+			(uuid "2c5cbf08-37d4-4b91-a502-449f1280d0a9")
+		)
+		(fp_line
+			(start 0 -10)
+			(end 17 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "2959cb7e-c21a-432d-aa38-ebf3e643a299")
+		)
+		(fp_line
+			(start 0 0)
+			(end 0 -10)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "ecaa95b6-5f93-433f-8cd3-35632ca8a2fc")
+		)
+		(fp_line
+			(start 17 -10)
+			(end 17 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "429c84a6-1a29-4906-8ea1-f05ff15dbbad")
+		)
+		(fp_line
+			(start 17 0)
+			(end 0 0)
+			(stroke
+				(width 0.12)
+				(type default)
+			)
+			(layer "F.CrtYd")
+			(uuid "0924ae8e-45bc-4675-90db-25a38ffe5fa3")
+		)
+		(fp_text user "Cap"
+			(at 12.75 -6.5 -90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "0a60e489-caa2-4470-a554-9f44b62b10e5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "LED"
+			(at 5.75 -3.75 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "329db6b5-96cc-4196-9912-b63af8b346fa")
+			(effects
+				(font
+					(size 2 2)
+					(thickness 0.1)
+				)
+				(justify left bottom)
+			)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 5 -11 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "8b5d35e4-5b00-4a83-b6af-406fc265b3c7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd custom
+			(at 1.25 -2.125)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 4 "5V")
+			(pinfunction "VDD")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "6cd38ad8-d48a-46b7-88d5-1f44e4a133e2")
+		)
+		(pad "2" smd custom
+			(at 15.75 -5 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 20 "Net-(D17-DIN)")
+			(pinfunction "DOUT")
+			(pintype "output")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "667b715b-af95-4191-99fe-c9c892691db7")
+		)
+		(pad "3" smd custom
+			(at 15.75 -7.875 180)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 2 "GND")
+			(pinfunction "VSS")
+			(pintype "power_in")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "c3a9d515-cb55-4a50-b2e0-23ab1d188587")
+		)
+		(pad "4" smd custom
+			(at 1.25 -5)
+			(size 1.5 1.5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(net 22 "Net-(D18-DIN)")
+			(pinfunction "DIN")
+			(pintype "input")
+			(thermal_bridge_angle 90)
+			(options
+				(clearance outline)
+				(anchor circle)
+			)
+			(primitives
+				(gr_rect
+					(start -1.25 -0.75)
+					(end 0 0.75)
+					(width 0.0001)
+					(fill yes)
+				)
+			)
+			(uuid "b0492d7d-4705-4b0c-aa87-3a1aacd2575e")
+		)
+	)
+)
