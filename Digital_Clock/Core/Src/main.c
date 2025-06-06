@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <math.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -34,7 +34,7 @@
 #define LED_NUM 1
 #define LED_LOGICAL_ONE 57 //high
 #define LED_LOGICAL_ZERO 28 //low
-#define BRIGHTNESS 45 //preset brightness 0-45
+#define BRIGHTNESS 45 //preset brightness 1-45
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -75,20 +75,13 @@ void set_brightness(int brightness, int led_pos){
 	my_LEDS[led_pos][2] /= tan(angle);
 }
 
-void initiate(){
-	reset_all_LEDS();
-	for(int i = 0; i < LED_NUM; i++){
-		set_LEDS(0, 0, 0, i);
-	}
-}
-
 void set_LEDS(uint32_t R, uint32_t G, uint32_t B, int led_pos){
 	my_LEDS[led_pos][0] = G;
 	my_LEDS[led_pos][1] = R;
 	my_LEDS[led_pos][2] = B;
 	set_brightness(BRIGHTNESS, led_pos);
 
-	uint32_t RGB_bits = my_LEDS[led_pos][0] << 16 | myLEDS[led_pos][1] << 8 | myLEDS[led_pos][2]; //creates a 24 bit number that fits all 3 LEDS (8 bits each)
+	uint32_t RGB_bits = my_LEDS[led_pos][0] << 16 | my_LEDS[led_pos][1] << 8 | my_LEDS[led_pos][2]; //creates a 24 bit number that fits all 3 LEDS (8 bits each)
 	for(int i = 0; i < 8; i++){
 		if(RGB_bits & 1 << i){ //for all statements below, bitmasks 8 different iterations to isolate one bit
 			pulse_arr[i + 24*led_pos] = LED_LOGICAL_ONE;
@@ -142,6 +135,13 @@ void reset_all_LEDS(){
 	}
 }
 
+void initiate(){
+	reset_all_LEDS();
+	for(int i = 0; i < LED_NUM; i++){
+		set_LEDS(0, 0, 0, i);
+	}
+}
+
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
 	HAL_TIM_PWM_Stop_DMA(&htim2, TIM_CHANNEL_1);
 }
@@ -156,8 +156,6 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	initiate();
-
 
   /* USER CODE END 1 */
 
@@ -183,13 +181,17 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  //initiate();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);
+	  HAL_Delay(300);
+	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 0);
+	  HAL_Delay(300);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -256,7 +258,7 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 1;
+  htim2.Init.Prescaler = 0;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim2.Init.Period = 89;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -351,13 +353,25 @@ static void MX_DMA_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
 
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : PC13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
