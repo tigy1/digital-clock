@@ -31,7 +31,10 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define LED_NUM 7
+#define LED_NUM 1
+#define LED_LOGICAL_ONE 57 //high
+#define LED_LOGICAL_ZERO 28 //low
+#define BRIGHTNESS 45 //preset brightness 0-45
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -61,6 +64,83 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint16_t pulse_arr[24*LED_NUM + 40]; //add bits for reset timing later
+uint32_t my_LEDS[LED_NUM][3]; //0 = Green, 1 = Red, 2 = Blue -> buffer for debugging & easier brightness settings
+
+void set_brightness(int brightness, int led_pos){
+	float angle = 90-brightness; //degrees
+	angle *= M_PI/180; //radians
+	my_LEDS[led_pos][0] /= tan(angle);
+	my_LEDS[led_pos][1] /= tan(angle);
+	my_LEDS[led_pos][2] /= tan(angle);
+}
+
+void initiate(){
+	reset_all_LEDS();
+	for(int i = 0; i < LED_NUM; i++){
+		set_LEDS(0, 0, 0, i);
+	}
+}
+
+void set_LEDS(uint32_t R, uint32_t G, uint32_t B, int led_pos){
+	my_LEDS[led_pos][0] = G;
+	my_LEDS[led_pos][1] = R;
+	my_LEDS[led_pos][2] = B;
+	set_brightness(BRIGHTNESS, led_pos);
+
+	uint32_t RGB_bits = my_LEDS[led_pos][0] << 16 | myLEDS[led_pos][1] << 8 | myLEDS[led_pos][2]; //creates a 24 bit number that fits all 3 LEDS (8 bits each)
+	for(int i = 0; i < 8; i++){
+		if(RGB_bits & 1 << i){ //for all statements below, bitmasks 8 different iterations to isolate one bit
+			pulse_arr[i + 24*led_pos] = LED_LOGICAL_ONE;
+		}
+		else{
+			pulse_arr[i + 24*led_pos] = LED_LOGICAL_ZERO;
+		}
+
+		if(RGB_bits & 1 << (i + 8)){
+			pulse_arr[i + 8 + 24*led_pos] = LED_LOGICAL_ONE;
+		}
+		else{
+			pulse_arr[i + 8 + 24*led_pos] = LED_LOGICAL_ZERO;
+		}
+
+		if(RGB_bits & 1 << (i + 16)){
+			pulse_arr[i + 16 + 24*led_pos] = LED_LOGICAL_ONE;
+		}
+		else{
+			pulse_arr[i + 16 + 24*led_pos] = LED_LOGICAL_ZERO;
+		}
+	}
+}
+
+//Sets LED pulse values for an LED at a specific index 0 to # of LEDS - 1.
+//Able to edit all 24 pulses (or all 3 leds at once) in 8 loops -> # of bits for each RGB
+void send_LEDS(){
+	HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_1, pulse_arr, 24*LED_NUM + 40);
+}
+
+//Sets every LED on strip to white color
+void set_all_white(){
+	for(int i = 0; i < LED_NUM; i++){
+		for(int j = 0; j < 8; j++){
+			//for all statements below, sets all pulses to logical high
+			pulse_arr[j + 24*i] = LED_LOGICAL_ONE;
+			pulse_arr[j + 8 + 24*i] = LED_LOGICAL_ONE;
+			pulse_arr[j + 16 + 24*i] = LED_LOGICAL_ONE;
+		}
+	}
+}
+//Turns every LED off (logical low)
+void reset_all_LEDS(){
+	for(int i = 0; i < LED_NUM; i++){
+		for(int j = 0; j < 8; j++){
+			//for all statements below, sets all pulses to logical low
+			pulse_arr[j + 24*i] = LED_LOGICAL_ZERO;
+			pulse_arr[j + 8 + 24*i] = LED_LOGICAL_ZERO;
+			pulse_arr[j + 16 + 24*i] = LED_LOGICAL_ZERO;
+		}
+	}
+}
 
 /* USER CODE END 0 */
 
@@ -72,6 +152,8 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	initiate();
+
 
   /* USER CODE END 1 */
 
