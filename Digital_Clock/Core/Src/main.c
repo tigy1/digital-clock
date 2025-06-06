@@ -34,7 +34,7 @@
 #define LED_NUM 1
 #define LED_LOGICAL_ONE 57 //high
 #define LED_LOGICAL_ZERO 28 //low
-#define BRIGHTNESS 45 //preset brightness 1-45
+#define BRIGHTNESS 20 //preset brightness 1-45
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -66,6 +66,7 @@ static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN 0 */
 uint16_t pulse_arr[24*LED_NUM + 40]; //add bits for reset timing later
 uint32_t my_LEDS[LED_NUM][3]; //0 = Green, 1 = Red, 2 = Blue -> buffer for debugging & easier brightness settings
+int data_sent = 0;
 
 void set_brightness(int brightness, int led_pos){
 	float angle = 90-brightness; //degrees
@@ -80,63 +81,59 @@ void set_LEDS(uint32_t R, uint32_t G, uint32_t B, int led_pos){
 	my_LEDS[led_pos][1] = R;
 	my_LEDS[led_pos][2] = B;
 	set_brightness(BRIGHTNESS, led_pos);
-
-	uint32_t RGB_bits = my_LEDS[led_pos][0] << 16 | my_LEDS[led_pos][1] << 8 | my_LEDS[led_pos][2]; //creates a 24 bit number that fits all 3 LEDS (8 bits each)
-	for(int i = 0; i < 8; i++){
-		if(RGB_bits & 1 << i){ //for all statements below, bitmasks 8 different iterations to isolate one bit
-			pulse_arr[i + 24*led_pos] = LED_LOGICAL_ONE;
-		}
-		else{
-			pulse_arr[i + 24*led_pos] = LED_LOGICAL_ZERO;
-		}
-
-		if(RGB_bits & 1 << (i + 8)){
-			pulse_arr[i + 8 + 24*led_pos] = LED_LOGICAL_ONE;
-		}
-		else{
-			pulse_arr[i + 8 + 24*led_pos] = LED_LOGICAL_ZERO;
-		}
-
-		if(RGB_bits & 1 << (i + 16)){
-			pulse_arr[i + 16 + 24*led_pos] = LED_LOGICAL_ONE;
-		}
-		else{
-			pulse_arr[i + 16 + 24*led_pos] = LED_LOGICAL_ZERO;
-		}
-	}
 }
 
 //Sets LED pulse values for an LED at a specific index 0 to # of LEDS - 1.
 //Able to edit all 24 pulses (or all 3 leds at once) in 8 loops -> # of bits for each RGB
 void send_LEDS(){
-	HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_1, pulse_arr, 24*LED_NUM + 40);
+	for(int j = 0; j < LED_NUM; j++){
+		uint32_t RGB_bits = my_LEDS[j][0] << 16 | my_LEDS[j][1] << 8 | my_LEDS[j][2]; //creates a 24 bit number that fits all 3 LEDS (8 bits each)
+		for(int i = 0; i < 8; i++){
+			if(RGB_bits & 1 << i){ //for all statements below, bitmasks 8 different iterations to isolate one bit
+				pulse_arr[i + 24*j] = LED_LOGICAL_ONE;
+			}
+			else{
+				pulse_arr[i + 24*j] = LED_LOGICAL_ZERO;
+			}
+
+			if(RGB_bits & 1 << (i + 8)){
+				pulse_arr[i + 8 + 24*j] = LED_LOGICAL_ONE;
+			}
+			else{
+				pulse_arr[i + 8 + 24*j] = LED_LOGICAL_ZERO;
+			}
+
+			if(RGB_bits & 1 << (i + 16)){
+				pulse_arr[i + 16 + 24*j] = LED_LOGICAL_ONE;
+			}
+			else{
+				pulse_arr[i + 16 + 24*j] = LED_LOGICAL_ZERO;
+			}
+		}
+	}
+
+	data_sent = 0;
+	HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_1, (uint32_t *) pulse_arr, 24*LED_NUM + 40);
 }
 
 //Sets every LED on strip to white color
 void set_all_white(){
 	for(int i = 0; i < LED_NUM; i++){
-		for(int j = 0; j < 8; j++){
-			//for all statements below, sets all pulses to logical high
-			pulse_arr[j + 24*i] = LED_LOGICAL_ONE;
-			pulse_arr[j + 8 + 24*i] = LED_LOGICAL_ONE;
-			pulse_arr[j + 16 + 24*i] = LED_LOGICAL_ONE;
+		for(int j = 0; j < 3; j++){
+			my_LEDS[i][j] = 255;
 		}
 	}
 }
 //Turns every LED off (logical low)
 void reset_all_LEDS(){
 	for(int i = 0; i < LED_NUM; i++){
-		for(int j = 0; j < 8; j++){
-			//for all statements below, sets all pulses to logical low
-			pulse_arr[j + 24*i] = LED_LOGICAL_ZERO;
-			pulse_arr[j + 8 + 24*i] = LED_LOGICAL_ZERO;
-			pulse_arr[j + 16 + 24*i] = LED_LOGICAL_ZERO;
+		for(int j = 0; j < 3; j++){
+			my_LEDS[i][j] = 0;
 		}
 	}
 }
 
 void initiate(){
-	reset_all_LEDS();
 	for(int i = 0; i < LED_NUM; i++){
 		set_LEDS(0, 0, 0, i);
 	}
@@ -144,6 +141,7 @@ void initiate(){
 
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
 	HAL_TIM_PWM_Stop_DMA(&htim2, TIM_CHANNEL_1);
+	data_sent = 1;
 }
 
 /* USER CODE END 0 */
@@ -181,7 +179,10 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  //initiate();
+  initiate();
+  set_all_white();
+  send_LEDS();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -189,9 +190,9 @@ int main(void)
   while (1)
   {
 	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);
-	  HAL_Delay(300);
+	  HAL_Delay(500);
 	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 0);
-	  HAL_Delay(300);
+	  HAL_Delay(500);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
