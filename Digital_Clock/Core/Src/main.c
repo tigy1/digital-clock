@@ -31,10 +31,10 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define LED_NUM 1
+#define LED_NUM 7 //number of LEDS
 #define LED_LOGICAL_ONE 57 //high
 #define LED_LOGICAL_ZERO 28 //low
-#define BRIGHTNESS 20 //preset brightness 1-45
+#define BRIGHTNESS 1 //preset brightness 1-45
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -43,6 +43,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+I2C_HandleTypeDef hi2c1;
+
 TIM_HandleTypeDef htim2;
 DMA_HandleTypeDef hdma_tim2_ch1;
 
@@ -58,6 +60,7 @@ static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -66,8 +69,40 @@ static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN 0 */
 uint16_t pulse_arr[24*LED_NUM + 40]; //add bits for reset timing later
 uint32_t my_LEDS[LED_NUM][3]; //0 = Green, 1 = Red, 2 = Blue -> buffer for debugging & easier brightness settings
+uint8_t digit_table[10] = {
+	0b1111101, //0
+	0b0000101, //1
+	0b1101110, //2
+	0b1001111, //3
+	0b0010111, //4
+	0b1011011, //5
+	0b1111011, //6
+	0b0001101, //7
+	0b1111111, //8
+	0b1011111, //9
+};
 int data_sent = 0;
 
+void set_digit(int digit_pos, uint8_t digit_number){ //digit position 0-4, digit_number 0-9
+	if (digit_pos > 3 || digit_number > 9)
+		return;
+
+	int position_increment = digit_pos*7;
+	if(digit_pos > 1){
+		position_increment += 2;
+
+	}
+	for(int led_index = 0; led_index < 7; led_index++){
+		if(digit_table[digit_number] & (0b1000000 >> led_index)){
+			set_LEDS(255, 0, 0, led_index + position_increment); //red
+		}
+		else{
+			set_LEDS(0, 0, 0, led_index + position_increment); //off
+		}
+	}
+}
+
+//configure the brightness w/ brightness constant at top
 void set_brightness(int brightness, int led_pos){
 	float angle = 90-brightness; //degrees
 	angle *= M_PI/180; //radians
@@ -76,6 +111,7 @@ void set_brightness(int brightness, int led_pos){
 	my_LEDS[led_pos][2] /= tan(angle);
 }
 
+//set LED buffer to certain RGB value
 void set_LEDS(uint32_t R, uint32_t G, uint32_t B, int led_pos){
 	my_LEDS[led_pos][0] = G;
 	my_LEDS[led_pos][1] = R;
@@ -119,9 +155,7 @@ void send_LEDS(){
 //Sets every LED on strip to white color
 void set_all_white(){
 	for(int i = 0; i < LED_NUM; i++){
-		for(int j = 0; j < 3; j++){
-			my_LEDS[i][j] = 255;
-		}
+		set_LEDS(255, 255, 255, i);
 	}
 }
 //Turns every LED off (logical low)
@@ -142,6 +176,10 @@ void initiate(){
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
 	HAL_TIM_PWM_Stop_DMA(&htim2, TIM_CHANNEL_1);
 	data_sent = 1;
+}
+
+void set_digital_clock(int digit_index){
+
 }
 
 /* USER CODE END 0 */
@@ -178,11 +216,14 @@ int main(void)
   MX_DMA_Init();
   MX_TIM2_Init();
   MX_USART1_UART_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   initiate();
   set_all_white();
-  send_LEDS();
 
+  set_digit(0, 8);
+
+  //send_LEDS();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -237,6 +278,40 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 400000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
 }
 
 /**
@@ -363,6 +438,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
