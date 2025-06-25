@@ -31,10 +31,12 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define LED_NUM 7 //number of LEDS
+#define LED_NUM 10 //number of LEDS
 #define LED_LOGICAL_ONE 57 //high
 #define LED_LOGICAL_ZERO 28 //low
 #define BRIGHTNESS 1 //preset brightness 1-45
+
+#define DS3231_ADDRESS 0x68 // 7-bit I2C address
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -51,6 +53,19 @@ DMA_HandleTypeDef hdma_tim2_ch1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
+void set_digit(int digit_pos, uint8_t digit_number);
+void set_brightness(int brightness, int led_pos);
+void set_LEDS(uint32_t R, uint32_t G, uint32_t B, int led_pos);
+void send_LEDS(void);
+void set_all_white(void);
+void reset_all_LEDS(void);
+void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim);
+void set_digital_clock(void);
+void set_time(uint8_t seconds, uint8_t minutes, uint8_t hours, uint8_t week_day, uint8_t month_day, uint8_t month, uint8_t year, uint8_t AMPM);
+uint8_t dectoBCD(int num);
+int BCDtodec(uint8_t bin);
+void initiate_time(void);
+// void set_alarm(void);  // to be implemented later
 
 /* USER CODE END PV */
 
@@ -69,7 +84,7 @@ static void MX_I2C1_Init(void);
 /* USER CODE BEGIN 0 */
 uint16_t pulse_arr[24*LED_NUM + 40]; //add bits for reset timing later
 uint32_t my_LEDS[LED_NUM][3]; //0 = Green, 1 = Red, 2 = Blue -> buffer for debugging & easier brightness settings
-uint8_t digit_table[10] = {
+uint8_t digit_table[12] = {
 	0b1111101, //0
 	0b0000101, //1
 	0b1101110, //2
@@ -80,18 +95,20 @@ uint8_t digit_table[10] = {
 	0b0001101, //7
 	0b1111111, //8
 	0b1011111, //9
+	0b0111110, //'P' (for PM)
+	0b0111111 //'A' (for AM)
 };
 int data_sent = 0;
 
+//-------------------------------------------------------------------> LED control
 void set_digit(int digit_pos, uint8_t digit_number){ //digit position 0-4, digit_number 0-9
-	if (digit_pos > 3 || digit_number > 9)
-		return;
-
 	int position_increment = digit_pos*7;
-	if(digit_pos > 1){
-		position_increment += 2;
 
+
+	if(digit_pos > 1){ //taking into account colon LED indexes
+		position_increment += 2;
 	}
+
 	for(int led_index = 0; led_index < 7; led_index++){
 		if(digit_table[digit_number] & (0b1000000 >> led_index)){
 			set_LEDS(255, 0, 0, led_index + position_increment); //red
@@ -161,14 +178,6 @@ void set_all_white(){
 //Turns every LED off (logical low)
 void reset_all_LEDS(){
 	for(int i = 0; i < LED_NUM; i++){
-		for(int j = 0; j < 3; j++){
-			my_LEDS[i][j] = 0;
-		}
-	}
-}
-
-void initiate(){
-	for(int i = 0; i < LED_NUM; i++){
 		set_LEDS(0, 0, 0, i);
 	}
 }
@@ -178,9 +187,61 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
 	data_sent = 1;
 }
 
-void set_digital_clock(int digit_index){
+void set_digital_clock(){ //work on ts function
+	uint8_t time[2]; //0 = min, 1 = hr
 
+    // Read minutes and hours from DS3231 (starting at register 0x01)
+	HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x01, 1, time, 2, 1000);
+	int minutes = BCDtodec(time[0]);
+	int hours = BCDtodec(time[1] & 0x1F);
+
+	if(time[1] & (1 << 5)){ //1st digit from right, AM/PM value
+		set_digit(4, 10); //index of 'P' in digital_table = 10
+	}
+	else{
+		set_digit(4, 11); //index of 'A' in digital_table = 11
+	}
+	set_digit(3, minutes%10); //2nd digit from right, one's minute value
+	set_digit(2, minutes/10); //3nd digit from right, ten's minute value
+	set_digit(1, hours%10); //4nd digit from right, one's hour value
+	set_digit(0, hours/10); //5nd digit from right, ten's hour value
 }
+
+//-------------------------------------------------------------------> DS3231 setup
+void set_time(uint8_t seconds, uint8_t minutes, uint8_t hours, uint8_t week_day, uint8_t month_day, uint8_t month, uint8_t year, uint8_t AMPM){ //initialize the ds3231 registers
+	uint8_t buffer[] = {
+		dectoBCD(seconds), //seconds
+		dectoBCD(minutes), //minutes
+		(1 << 6) | ((AMPM & 1) << 5) | dectoBCD(hours), //hours & AM/PM activation, AM = 0 PM = 1
+		dectoBCD(week_day), //days in week 1-7
+		dectoBCD(month_day), //days in month 1-31
+		dectoBCD(month), //month
+		dectoBCD(year), //year
+	};
+
+	//initialize time registers in DS3231
+	HAL_I2C_Mem_Write(&hi2c1, DS3231_ADDRESS << 1, 0x00, 1, buffer, 7, 1000);
+
+	//clear OSF flag (default is 1)
+    uint8_t status;
+    HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x0F, 1, &status, 1, 1000);
+    status &= ~(1 << 7); // Clear OSF
+    HAL_I2C_Mem_Write(&hi2c1, DS3231_ADDRESS << 1, 0x0F, 1, &status, 1, 1000);
+}
+
+uint8_t dectoBCD(int num){
+	return (uint8_t)(((num/10) << 4) + num%10);
+}
+
+int BCDtodec(uint8_t bin){
+	return (int)((bin>>16)*10 + (bin%16));
+}
+
+void initiate_time(){
+	set_time(0, 0, 1, 1, 1, 1, 0, 0); //edit or add API
+}
+
+// void set_alarm(){}; //to do
 
 /* USER CODE END 0 */
 
@@ -217,19 +278,21 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   MX_I2C1_Init();
+
   /* USER CODE BEGIN 2 */
-  initiate();
+  //initiate_time();
   set_all_white();
+  //set_digit(0, 8);
 
-  set_digit(0, 8);
-
-  //send_LEDS();
+  send_LEDS();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  //set_digital_clock();
+
 	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);
 	  HAL_Delay(500);
 	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 0);
