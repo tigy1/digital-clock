@@ -31,7 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define LED_NUM 10 //number of LEDS
+#define LED_NUM 37 //number of LEDS
 #define LED_LOGICAL_ONE 57 //high
 #define LED_LOGICAL_ZERO 28 //low
 #define BRIGHTNESS 1 //preset brightness 1-45
@@ -227,6 +227,7 @@ void set_time(uint8_t seconds, uint8_t minutes, uint8_t hours, uint8_t week_day,
     HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x0F, 1, &status, 1, 1000);
     status &= ~(1 << 7); // Clear OSF
     HAL_I2C_Mem_Write(&hi2c1, DS3231_ADDRESS << 1, 0x0F, 1, &status, 1, 1000);
+
 }
 
 uint8_t dectoBCD(int num){
@@ -238,7 +239,7 @@ int BCDtodec(uint8_t bin){
 }
 
 void initiate_time(){
-	set_time(0, 0, 1, 1, 1, 1, 0, 0); //edit or add API
+	set_time(59, 0, 1, 1, 1, 1, 0, 0); //edit or add API
 }
 
 // void set_alarm(){}; //to do
@@ -280,9 +281,9 @@ int main(void)
   MX_I2C1_Init();
 
   /* USER CODE BEGIN 2 */
-  //initiate_time();
-  set_all_white();
-  //set_digit(0, 8);
+  initiate_time();
+  HAL_Delay(2000);
+  set_digital_clock();
 
   send_LEDS();
   /* USER CODE END 2 */
@@ -548,8 +549,7 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+	//while (1); //halt program and keep it running
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
