@@ -59,6 +59,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define Alarm_Trigger_Pin GPIO_PIN_12
+#define Alarm_Trigger_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

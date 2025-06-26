@@ -36,7 +36,8 @@
 #define LED_LOGICAL_ZERO 28 //low
 #define BRIGHTNESS 1 //preset brightness 1-45
 
-#define DS3231_ADDRESS 0x68 // 7-bit I2C address
+#define DS3231_ADDRESS 0x68 // 7-bit I2C DS3231 address
+#define BIRTH_MONTH 6
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -61,11 +62,12 @@ void set_all_white(void);
 void reset_all_LEDS(void);
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim);
 void set_digital_clock(void);
-void set_time(uint8_t seconds, uint8_t minutes, uint8_t hours, uint8_t week_day, uint8_t month_day, uint8_t month, uint8_t year, uint8_t AMPM);
+void set_time(int seconds, int minutes, int hours, int week_day, int month_day, int month, int year, int AMPM);
 uint8_t dectoBCD(int num);
 int BCDtodec(uint8_t bin);
 void initiate_time(void);
-// void set_alarm(void);  // to be implemented later
+void set_birthday_alarm(int day_of_month);
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 
 /* USER CODE END PV */
 
@@ -99,6 +101,7 @@ uint8_t digit_table[12] = {
 	0b0111111 //'A' (for AM)
 };
 int data_sent = 0;
+uint8_t alarm_status = 0; //boolean: 1 = bday 0 = end of day
 
 //-------------------------------------------------------------------> LED control
 void set_digit(int digit_pos, uint8_t digit_number){ //digit position 0-4, digit_number 0-9
@@ -187,7 +190,7 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
 	data_sent = 1;
 }
 
-void set_digital_clock(){ //work on ts function
+void set_digital_clock(){
 	uint8_t time[2]; //0 = min, 1 = hr
 
     // Read minutes and hours from DS3231 (starting at register 0x01)
@@ -208,7 +211,7 @@ void set_digital_clock(){ //work on ts function
 }
 
 //-------------------------------------------------------------------> DS3231 setup
-void set_time(uint8_t seconds, uint8_t minutes, uint8_t hours, uint8_t week_day, uint8_t month_day, uint8_t month, uint8_t year, uint8_t AMPM){ //initialize the ds3231 registers
+void set_time(int seconds, int minutes, int hours, int week_day, int month_day, int month, int year, int AMPM){ //initialize the ds3231 registers
 	uint8_t buffer[] = {
 		dectoBCD(seconds), //seconds
 		dectoBCD(minutes), //minutes
@@ -242,7 +245,26 @@ void initiate_time(){
 	set_time(59, 0, 1, 1, 1, 1, 0, 0); //edit or add API
 }
 
-// void set_alarm(){}; //to do
+void set_birthday_alarm(int day_of_month){
+	//alarm control register setting
+	uint8_t ctrl;
+	HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x0E, 1, &ctrl, 1, 1000);
+	ctrl |= 0b00000111; // A1IE, A2IE, INTCN bits turned on
+	HAL_I2C_Mem_Write(&hi2c1, DS3231_ADDRESS << 1, 0x0E, 1, &ctrl, 1, 1000);
+
+	//create buffer used to fill & represent both alarm registers
+	uint8_t alarm_buffer[] = {
+		0x00, //alarm 1 seconds
+		0x00, //a1 minutes
+		0x00, //a1 hours
+		dectoBCD(day_of_month), //a1 month-day
+		0x00, //a2 minutes
+		0x00, //a2 hours
+		dectoBCD(day_of_month+1) //a2 month-day
+	};
+
+	HAL_I2C_Mem_Write(&hi2c1, DS3231_ADDRESS << 1, 0x07, 1, alarm_buffer, 7, 1000);
+};
 
 /* USER CODE END 0 */
 
@@ -279,7 +301,6 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   MX_I2C1_Init();
-
   /* USER CODE BEGIN 2 */
   initiate_time();
   HAL_Delay(2000);
@@ -514,13 +535,39 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : Alarm_Trigger_Pin */
+  GPIO_InitStruct.Pin = Alarm_Trigger_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(Alarm_Trigger_GPIO_Port, &GPIO_InitStruct);
+
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	if(GPIO_Pin == GPIO_PIN_12 && GPIOx == GPIOB) {
+		uint8_t ctrl_status;
+		HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x0F, 1, &ctrl_status, 2, 1000);
+		ctrl_status &= ~(0b00000011); //clears both alarm bits
+		HAL_I2C_Mem_Write(&hi2c1, DS3231_ADDRESS << 1, 0x0F, 1, &ctrl_status, 1, 1000);
 
+		uint8_t curr_month_BCD;
+		HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x05, 1, &curr_month_BCD, 1, 1000);
+		int curr_month = BCDtodec(curr_month_BCD);
+
+		if(!alarm_status && curr_month == BIRTH_MONTH){ //WIP
+			alarm_status != alarm_status;
+			//do cool rainbow led pattern or whatever
+		}
+		else{
+			//change back to original
+			__NOP(); //placeholder
+		}
+	}
+}
 /* USER CODE END 4 */
 
 /**
