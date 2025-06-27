@@ -38,6 +38,7 @@
 
 #define DS3231_ADDRESS 0x68 // 7-bit I2C DS3231 address
 #define BIRTH_MONTH 6
+#define BIRTH_DAY 29
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -61,7 +62,7 @@ void send_LEDS(void);
 void set_all_white(void);
 void reset_all_LEDS(void);
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim);
-void set_digital_clock(void);
+void set_digital_clock(uint8_t delimiter);
 void set_time(int seconds, int minutes, int hours, int week_day, int month_day, int month, int year, int AMPM);
 uint8_t dectoBCD(int num);
 int BCDtodec(uint8_t bin);
@@ -100,13 +101,21 @@ uint8_t digit_table[12] = {
 	0b0111110, //'P' (for PM)
 	0b0111111 //'A' (for AM)
 };
-int data_sent = 0;
-uint8_t alarm_status = 0; //boolean: 1 = bday 0 = end of day
+volatile int data_sent = 0;
+volatile uint8_t alarm_status = 0; //boolean: 1 = bday 0 = end of day
+
+typedef struct{
+	int minutes;
+	int hours;
+	int AMPM;
+	int day_month;
+	int month;
+} Time;
+volatile Time curr_time;
 
 //-------------------------------------------------------------------> LED control
 void set_digit(int digit_pos, uint8_t digit_number){ //digit position 0-4, digit_number 0-9
 	int position_increment = digit_pos*7;
-
 
 	if(digit_pos > 1){ //taking into account colon LED indexes
 		position_increment += 2;
@@ -185,29 +194,26 @@ void reset_all_LEDS(){
 	}
 }
 
-void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
-	HAL_TIM_PWM_Stop_DMA(&htim2, TIM_CHANNEL_1);
-	data_sent = 1;
-}
-
-void set_digital_clock(){
-	uint8_t time[2]; //0 = min, 1 = hr
-
-    // Read minutes and hours from DS3231 (starting at register 0x01)
-	HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x01, 1, time, 2, 1000);
-	int minutes = BCDtodec(time[0]);
-	int hours = BCDtodec(time[1] & 0x1F);
-
-	if(time[1] & (1 << 5)){ //1st digit from right, AM/PM value
+void set_digital_clock(uint8_t delimiter){
+	if(curr_time.AMPM){ //1st digit from right, AM/PM value
 		set_digit(4, 10); //index of 'P' in digital_table = 10
 	}
 	else{
 		set_digit(4, 11); //index of 'A' in digital_table = 11
 	}
-	set_digit(3, minutes%10); //2nd digit from right, one's minute value
-	set_digit(2, minutes/10); //3nd digit from right, ten's minute value
-	set_digit(1, hours%10); //4nd digit from right, one's hour value
-	set_digit(0, hours/10); //5nd digit from right, ten's hour value
+	set_digit(3, curr_time.minutes%10); //2nd digit from right, one's minute value
+	set_digit(2, curr_time.minutes/10); //3nd digit from right, ten's minute value
+	set_digit(1, curr_time.hours%10); //4nd digit from right, one's hour value
+	set_digit(0, curr_time.hours/10); //5nd digit from right, ten's hour value
+
+	if(delimiter){
+		set_LEDS(255, 0, 0, 14); //temp color red
+		set_LEDS(255, 0, 0, 15);
+	}
+	else{
+		set_LEDS(0, 0, 0, 14);
+		set_LEDS(0, 0, 0, 15);
+	}
 }
 
 //-------------------------------------------------------------------> DS3231 setup
@@ -225,12 +231,24 @@ void set_time(int seconds, int minutes, int hours, int week_day, int month_day, 
 	//initialize time registers in DS3231
 	HAL_I2C_Mem_Write(&hi2c1, DS3231_ADDRESS << 1, 0x00, 1, buffer, 7, 1000);
 
-	//clear OSF flag (default is 1)
+	//clear OSF flag & 32k SQW pin
     uint8_t status;
     HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x0F, 1, &status, 1, 1000);
-    status &= ~(1 << 7); // Clear OSF
+    status &= ~((1 << 7) | (1 << 3));
     HAL_I2C_Mem_Write(&hi2c1, DS3231_ADDRESS << 1, 0x0F, 1, &status, 1, 1000);
 
+}
+
+void update_time(){
+	uint8_t buffer[4];
+    HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x01, 1, &buffer[0], 2, 1000); //read minutes & hours
+    HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x04, 1, &buffer[2], 2, 1000); //read day in month & current month
+
+    curr_time.minutes = BCDtodec(buffer[0]);
+    curr_time.hours = BCDtodec(buffer[1] & 0x1F);
+    curr_time.AMPM = (buffer[1] >> 5) & 0x01;
+    curr_time.day_month = BCDtodec(buffer[2]);
+    curr_time.month = BCDtodec(buffer[3] & 0x1F);
 }
 
 uint8_t dectoBCD(int num){
@@ -238,7 +256,7 @@ uint8_t dectoBCD(int num){
 }
 
 int BCDtodec(uint8_t bin){
-	return (int)((bin>>16)*10 + (bin%16));
+	return (int)((bin>>4)*10 + (bin & 0x0F));
 }
 
 void initiate_time(){
@@ -254,11 +272,11 @@ void set_birthday_alarm(int day_of_month){
 
 	//create buffer used to fill & represent both alarm registers
 	uint8_t alarm_buffer[] = {
-		0x00, //alarm 1 seconds
+		0x00, //alarm 1 seconds, set 3 seconds into the day just in case
 		0x00, //a1 minutes
 		0x00, //a1 hours
 		dectoBCD(day_of_month), //a1 month-day
-		0x00, //a2 minutes
+		0x00, //a2 minutes, set 1 minute at the end of the day just in case
 		0x00, //a2 hours
 		dectoBCD(day_of_month+1) //a2 month-day
 	};
@@ -303,8 +321,18 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   initiate_time();
-  HAL_Delay(2000);
-  set_digital_clock();
+  HAL_Delay(100);
+  update_time();
+
+  uint8_t delimiter_toggle = 1;
+  uint8_t was_alarm = 0;
+
+  set_birthday_alarm(BIRTH_DAY);
+  HAL_Delay(100);
+
+  uint32_t onboard_timer = 0; //timer for onboard LED
+  uint32_t clock_timer = 0;
+  set_digital_clock(delimiter_toggle);
 
   send_LEDS();
   /* USER CODE END 2 */
@@ -313,12 +341,28 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  //set_digital_clock();
+	  uint32_t now_tick = HAL_GetTick();
 
-	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 0);
-	  HAL_Delay(500);
+	  if(now_tick - onboard_timer >= 500){
+		  onboard_timer = now_tick;
+		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	  }
+
+	  if(data_sent && now_tick - clock_timer >= 1000){
+		  delimiter_toggle = !delimiter_toggle;
+		  clock_timer = now_tick;
+		  update_time();
+		  set_digital_clock(delimiter_toggle);
+		  send_LEDS();
+	  }
+
+	  if(alarm_status){
+		  was_alarm = 1;
+		  //change color every tick like rainbow
+	  } else if(was_alarm){
+		  //set color back to red
+	  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -548,25 +592,25 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-	if(GPIO_Pin == GPIO_PIN_12 && GPIOx == GPIOB) {
+	if(GPIO_Pin == GPIO_PIN_12) {
 		uint8_t ctrl_status;
-		HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x0F, 1, &ctrl_status, 2, 1000);
+		HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x0F, 1, &ctrl_status, 1, 1000);
 		ctrl_status &= ~(0b00000011); //clears both alarm bits
 		HAL_I2C_Mem_Write(&hi2c1, DS3231_ADDRESS << 1, 0x0F, 1, &ctrl_status, 1, 1000);
 
-		uint8_t curr_month_BCD;
-		HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x05, 1, &curr_month_BCD, 1, 1000);
-		int curr_month = BCDtodec(curr_month_BCD);
-
-		if(!alarm_status && curr_month == BIRTH_MONTH){ //WIP
-			alarm_status != alarm_status;
-			//do cool rainbow led pattern or whatever
+		update_time();
+		if(curr_time.month == BIRTH_MONTH && curr_time.day_month == BIRTH_DAY){ //WIP
+			alarm_status = 1;
 		}
 		else{
-			//change back to original
-			__NOP(); //placeholder
+			alarm_status = 0;
 		}
 	}
+}
+
+void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim){
+	HAL_TIM_PWM_Stop_DMA(&htim2, TIM_CHANNEL_1);
+	data_sent = 1;
 }
 /* USER CODE END 4 */
 
