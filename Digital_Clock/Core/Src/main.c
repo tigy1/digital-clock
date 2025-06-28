@@ -26,7 +26,19 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+typedef struct{
+	int minutes;
+	int hours;
+	int AMPM;
+	int day_month;
+	int month;
+} Time;
 
+typedef struct rgb_struct{
+	uint8_t r;
+	uint8_t g;
+	uint8_t b;
+} RGBColor;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -35,6 +47,8 @@
 #define LED_LOGICAL_ONE 57 //high
 #define LED_LOGICAL_ZERO 28 //low
 #define BRIGHTNESS 1 //preset brightness 1-45
+#define DELIMITER_LED1 14
+#define DELIMITER_LED2 15
 
 #define DS3231_ADDRESS 0x68 // 7-bit I2C DS3231 address
 #define BIRTH_MONTH 6
@@ -56,8 +70,9 @@ UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 void set_digit(int digit_pos, uint8_t digit_number);
-void set_brightness(int brightness, int led_pos);
-void set_LEDS(uint32_t R, uint32_t G, uint32_t B, int led_pos);
+RGBColor adjust_brightness(int brightness, int led_pos);
+void set_LEDS(int led_pos, uint8_t toggle);
+void set_RGB(uint8_t R, uint8_t G, uint8_t B, int led_pos);
 void send_LEDS(void);
 void set_all_white(void);
 void reset_all_LEDS(void);
@@ -85,8 +100,7 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint16_t pulse_arr[24*LED_NUM + 40]; //add bits for reset timing later
-uint32_t my_LEDS[LED_NUM][3]; //0 = Green, 1 = Red, 2 = Blue -> buffer for debugging & easier brightness settings
+uint16_t pulse_arr[24*LED_NUM + 40]; // 24 bits per LED + reset pulse (> 50us = 40 slots at 1.25 µs per bit)
 uint8_t digit_table[12] = {
 	0b1111101, //0
 	0b0000101, //1
@@ -103,15 +117,8 @@ uint8_t digit_table[12] = {
 };
 volatile int data_sent = 0;
 volatile uint8_t alarm_status = 0; //boolean: 1 = bday 0 = end of day
-
-typedef struct{
-	int minutes;
-	int hours;
-	int AMPM;
-	int day_month;
-	int month;
-} Time;
 volatile Time curr_time;
+RGBColor LED_RGB[LED_NUM];
 
 //-------------------------------------------------------------------> LED control
 void set_digit(int digit_pos, uint8_t digit_number){ //digit position 0-4, digit_number 0-9
@@ -123,75 +130,96 @@ void set_digit(int digit_pos, uint8_t digit_number){ //digit position 0-4, digit
 
 	for(int led_index = 0; led_index < 7; led_index++){
 		if(digit_table[digit_number] & (0b1000000 >> led_index)){
-			set_LEDS(255, 0, 0, led_index + position_increment); //red
+			set_LEDS(led_index + position_increment, 1); //on
 		}
 		else{
-			set_LEDS(0, 0, 0, led_index + position_increment); //off
+			set_LEDS(led_index + position_increment, 0); //off
 		}
 	}
 }
 
 //configure the brightness w/ brightness constant at top
-void set_brightness(int brightness, int led_pos){
+RGBColor adjust_brightness(int brightness, int led_pos){
+	if(brightness > 44){
+			brightness = 44;
+	} else if(brightness < 1){
+		brightness = 1;
+	}
+
 	float angle = 90-brightness; //degrees
 	angle *= M_PI/180; //radians
-	my_LEDS[led_pos][0] /= tan(angle);
-	my_LEDS[led_pos][1] /= tan(angle);
-	my_LEDS[led_pos][2] /= tan(angle);
+
+	RGBColor res;
+	res.r = (uint8_t)(LED_RGB[led_pos].r / tan(angle));
+	res.g = (uint8_t)(LED_RGB[led_pos].g / tan(angle));
+	res.b = (uint8_t)(LED_RGB[led_pos].b / tan(angle));
+
+	return res;
 }
 
-//set LED buffer to certain RGB value
-void set_LEDS(uint32_t R, uint32_t G, uint32_t B, int led_pos){
-	my_LEDS[led_pos][0] = G;
-	my_LEDS[led_pos][1] = R;
-	my_LEDS[led_pos][2] = B;
-	set_brightness(BRIGHTNESS, led_pos);
+//set LEDs on or off to its color
+//Able to edit all 24 pulses (or all 3 RGB at once) in 8 loops -> # of bits for each RGB
+void set_LEDS(int led_pos, uint8_t toggle){
+	RGBColor color;
+	if (toggle) {
+		color = adjust_brightness(BRIGHTNESS, led_pos);
+	} else {
+		color = (RGBColor){0, 0, 0}; // LED off
+	}
+
+	for(int i = 0; i < 8; i++){
+		if(((color.g << i) >> 7) & 1){ //for all statements below, bitmasks 8 different iterations to isolate one bit
+			pulse_arr[i + 24*led_pos] = LED_LOGICAL_ONE;
+		}
+		else{
+			pulse_arr[i + 24*led_pos] = LED_LOGICAL_ZERO;
+		}
+
+		if(((color.r << i) >> 7) & 1){
+			pulse_arr[i + 8 + 24*led_pos] = LED_LOGICAL_ONE;
+		}
+		else{
+			pulse_arr[i + 8 + 24*led_pos] = LED_LOGICAL_ZERO;
+		}
+
+		if(((color.b << i) >> 7) & 1){
+			pulse_arr[i + 16 + 24*led_pos] = LED_LOGICAL_ONE;
+		}
+		else{
+			pulse_arr[i + 16 + 24*led_pos] = LED_LOGICAL_ZERO;
+		}
+	}
 }
 
 //Sets LED pulse values for an LED at a specific index 0 to # of LEDS - 1.
-//Able to edit all 24 pulses (or all 3 leds at once) in 8 loops -> # of bits for each RGB
+void set_RGB(uint8_t R, uint8_t G, uint8_t B, int led_pos){
+    LED_RGB[led_pos].r = R;
+    LED_RGB[led_pos].g = G;
+    LED_RGB[led_pos].b = B;
+}
+
 void send_LEDS(){
-	for(int j = 0; j < LED_NUM; j++){
-		uint32_t RGB_bits = my_LEDS[j][0] << 16 | my_LEDS[j][1] << 8 | my_LEDS[j][2]; //creates a 24 bit number that fits all 3 LEDS (8 bits each)
-		for(int i = 0; i < 8; i++){
-			if(RGB_bits & 1 << i){ //for all statements below, bitmasks 8 different iterations to isolate one bit
-				pulse_arr[i + 24*j] = LED_LOGICAL_ONE;
-			}
-			else{
-				pulse_arr[i + 24*j] = LED_LOGICAL_ZERO;
-			}
-
-			if(RGB_bits & 1 << (i + 8)){
-				pulse_arr[i + 8 + 24*j] = LED_LOGICAL_ONE;
-			}
-			else{
-				pulse_arr[i + 8 + 24*j] = LED_LOGICAL_ZERO;
-			}
-
-			if(RGB_bits & 1 << (i + 16)){
-				pulse_arr[i + 16 + 24*j] = LED_LOGICAL_ONE;
-			}
-			else{
-				pulse_arr[i + 16 + 24*j] = LED_LOGICAL_ZERO;
-			}
-		}
-	}
-
-	data_sent = 0;
 	HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_1, (uint32_t *) pulse_arr, 24*LED_NUM + 40);
+	data_sent = 0;
 }
 
 //Sets every LED on strip to white color
 void set_all_white(){
 	for(int i = 0; i < LED_NUM; i++){
-		set_LEDS(255, 255, 255, i);
+		set_RGB(255, 255, 255, i);
+		set_LEDS(i, 1);
 	}
 }
 //Turns every LED off (logical low)
 void reset_all_LEDS(){
 	for(int i = 0; i < LED_NUM; i++){
-		set_LEDS(0, 0, 0, i);
+		set_RGB(0, 0, 0, i);
+		set_LEDS(i, 1);
 	}
+}
+
+void rainbow_effect(){
+	//to-do
 }
 
 void set_digital_clock(uint8_t delimiter){
@@ -207,12 +235,12 @@ void set_digital_clock(uint8_t delimiter){
 	set_digit(0, curr_time.hours/10); //5nd digit from right, ten's hour value
 
 	if(delimiter){
-		set_LEDS(255, 0, 0, 14); //temp color red
-		set_LEDS(255, 0, 0, 15);
+		set_LEDS(DELIMITER_LED1, 1);
+		set_LEDS(DELIMITER_LED2, 1);
 	}
 	else{
-		set_LEDS(0, 0, 0, 14);
-		set_LEDS(0, 0, 0, 15);
+		set_LEDS(DELIMITER_LED1, 0);
+		set_LEDS(DELIMITER_LED2, 0);
 	}
 }
 
