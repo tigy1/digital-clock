@@ -33,12 +33,6 @@ typedef struct{
 	int day_month;
 	int month;
 } Time;
-
-typedef struct rgb_struct{
-	uint8_t r;
-	uint8_t g;
-	uint8_t b;
-} RGBColor;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -70,9 +64,8 @@ UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 void set_digit(int digit_pos, uint8_t digit_number);
-RGBColor adjust_brightness(int brightness, int led_pos);
-void set_LEDS(int led_pos, uint8_t toggle);
-void set_RGB(uint8_t R, uint8_t G, uint8_t B, int led_pos);
+void adjust_brightness(int brightness, uint8_t *RGB, int led_pos);
+void set_LEDS(uint8_t R, uint8_t G, uint8_t B, int led_pos);
 void send_LEDS(void);
 void set_all_white(void);
 void reset_all_LEDS(void);
@@ -100,8 +93,8 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint16_t pulse_arr[24*LED_NUM + 40]; // 24 bits per LED + reset pulse (> 50us = 40 slots at 1.25 µs per bit)
-uint8_t digit_table[12] = {
+static uint16_t pulse_arr[24*LED_NUM + 40]; // 24 bits per LED + reset pulse (> 50us = 40 slots at 1.25 µs per bit)
+static uint8_t digit_table[12] = {
 	0b1111101, //0
 	0b0000101, //1
 	0b1101110, //2
@@ -117,8 +110,8 @@ uint8_t digit_table[12] = {
 };
 volatile int data_sent = 0;
 volatile uint8_t alarm_status = 0; //boolean: 1 = bday 0 = end of day
-volatile Time curr_time;
-RGBColor LED_RGB[LED_NUM];
+static volatile Time curr_time;
+static uint8_t ToggleLED[LED_NUM];
 
 //-------------------------------------------------------------------> LED control
 void set_digit(int digit_pos, uint8_t digit_number){ //digit position 0-4, digit_number 0-9
@@ -130,16 +123,16 @@ void set_digit(int digit_pos, uint8_t digit_number){ //digit position 0-4, digit
 
 	for(int led_index = 0; led_index < 7; led_index++){
 		if(digit_table[digit_number] & (0b1000000 >> led_index)){
-			set_LEDS(led_index + position_increment, 1); //on
+			set_Toggle(led_index + position_increment, 1); //on
 		}
 		else{
-			set_LEDS(led_index + position_increment, 0); //off
+			set_Toggle(led_index + position_increment, 0); //off
 		}
 	}
 }
 
 //configure the brightness w/ brightness constant at top
-RGBColor adjust_brightness(int brightness, int led_pos){
+void adjust_brightness(int brightness, uint8_t *RGB, int led_pos){
 	if(brightness > 44){
 			brightness = 44;
 	} else if(brightness < 1){
@@ -149,40 +142,38 @@ RGBColor adjust_brightness(int brightness, int led_pos){
 	float angle = 90-brightness; //degrees
 	angle *= M_PI/180; //radians
 
-	RGBColor res;
-	res.r = (uint8_t)(LED_RGB[led_pos].r / tan(angle));
-	res.g = (uint8_t)(LED_RGB[led_pos].g / tan(angle));
-	res.b = (uint8_t)(LED_RGB[led_pos].b / tan(angle));
-
-	return res;
+	RGB[0] /= tan(angle);
+	RGB[1] /= tan(angle);
+	RGB[2] /= tan(angle);
 }
 
-//set LEDs on or off to its color
 //Able to edit all 24 pulses (or all 3 RGB at once) in 8 loops -> # of bits for each RGB
-void set_LEDS(int led_pos, uint8_t toggle){
-	RGBColor color;
-	if (toggle) {
-		color = adjust_brightness(BRIGHTNESS, led_pos);
-	} else {
-		color = (RGBColor){0, 0, 0}; // LED off
+void set_LEDS(uint8_t R, uint8_t G, uint8_t B, int led_pos){
+	uint8_t RGB[3] = {R, G, B};
+	adjust_brightness(BRIGHTNESS, RGB, led_pos);
+
+	if (!ToggleLED[led_pos]) {//only activates LEDS if LED is toggled in toggle array
+		RGB[0] = 0;
+		RGB[1] = 0;
+		RGB[2] = 0;
 	}
 
 	for(int i = 0; i < 8; i++){
-		if(((color.g << i) >> 7) & 1){ //for all statements below, bitmasks 8 different iterations to isolate one bit
+		if(((RGB[1] << i) >> 7) & 1){ //for all statements below, bitmasks 8 different iterations to isolate one bit
 			pulse_arr[i + 24*led_pos] = LED_LOGICAL_ONE;
 		}
 		else{
 			pulse_arr[i + 24*led_pos] = LED_LOGICAL_ZERO;
 		}
 
-		if(((color.r << i) >> 7) & 1){
+		if(((RGB[0] << i) >> 7) & 1){
 			pulse_arr[i + 8 + 24*led_pos] = LED_LOGICAL_ONE;
 		}
 		else{
 			pulse_arr[i + 8 + 24*led_pos] = LED_LOGICAL_ZERO;
 		}
 
-		if(((color.b << i) >> 7) & 1){
+		if(((RGB[2] << i) >> 7) & 1){
 			pulse_arr[i + 16 + 24*led_pos] = LED_LOGICAL_ONE;
 		}
 		else{
@@ -191,11 +182,9 @@ void set_LEDS(int led_pos, uint8_t toggle){
 	}
 }
 
-//Sets LED pulse values for an LED at a specific index 0 to # of LEDS - 1.
-void set_RGB(uint8_t R, uint8_t G, uint8_t B, int led_pos){
-    LED_RGB[led_pos].r = R;
-    LED_RGB[led_pos].g = G;
-    LED_RGB[led_pos].b = B;
+//Sets on/off for an LED at a specific index 0 to # of LEDS - 1.
+void set_Toggle(int led_pos, uint8_t toggle){
+    ToggleLED[led_pos] = toggle;
 }
 
 void send_LEDS(){
@@ -203,23 +192,56 @@ void send_LEDS(){
 	data_sent = 0;
 }
 
-//Sets every LED on strip to white color
+//Sets all LED on strip to white color
 void set_all_white(){
 	for(int i = 0; i < LED_NUM; i++){
-		set_RGB(255, 255, 255, i);
-		set_LEDS(i, 1);
+		set_LEDS(255, 255, 255, i);
 	}
 }
 //Turns every LED off (logical low)
 void reset_all_LEDS(){
 	for(int i = 0; i < LED_NUM; i++){
-		set_RGB(0, 0, 0, i);
-		set_LEDS(i, 1);
+		set_LEDS(0, 0, 0, i);
 	}
 }
 
-void rainbow_effect(){
-	//to-do
+void hsv_to_rgb(float h, float s, float v, uint8_t* r, uint8_t* g, uint8_t* b) {
+    float c = v * s;
+    float x = c * (1.0f - fabsf(fmodf(h * 6.0f, 2.0f) - 1.0f));
+    float m = v - c;
+    float rf = 0, gf = 0, bf = 0;
+
+    if (h < 1.0f/6.0f)       { rf = c; gf = x; bf = 0; }
+    else if (h < 2.0f/6.0f)  { rf = x; gf = c; bf = 0; }
+    else if (h < 3.0f/6.0f)  { rf = 0; gf = c; bf = x; }
+    else if (h < 4.0f/6.0f)  { rf = 0; gf = x; bf = c; }
+    else if (h < 5.0f/6.0f)  { rf = x; gf = 0; bf = c; }
+    else                    { rf = c; gf = 0; bf = x; }
+
+    *r = (uint8_t)((rf + m) * 255);
+    *g = (uint8_t)((gf + m) * 255);
+    *b = (uint8_t)((bf + m) * 255);
+}
+
+void rainbow_effect(uint32_t now){
+    static float base_hue = 0.0f;
+    static uint32_t last_ms = 0;
+
+    if (now - last_ms < 20) return;
+    last_ms = now;
+
+    for (int i = 0; i < LED_NUM; i++) {
+        float hue = base_hue + ((float)i / LED_NUM);
+        if (hue >= 1.0f) hue -= 1.0f;
+
+        uint8_t r, g, b;
+        hsv_to_rgb(hue, 1.0f, 0.3f, &r, &g, &b);
+
+        set_LEDS(r, g, b, i);
+    }
+
+    base_hue += 0.01f;
+    if (base_hue >= 1.0f) base_hue -= 1.0f;
 }
 
 void set_digital_clock(uint8_t delimiter){
@@ -235,12 +257,12 @@ void set_digital_clock(uint8_t delimiter){
 	set_digit(0, curr_time.hours/10); //5nd digit from right, ten's hour value
 
 	if(delimiter){
-		set_LEDS(DELIMITER_LED1, 1);
-		set_LEDS(DELIMITER_LED2, 1);
+		set_Toggle(DELIMITER_LED1, 1);
+		set_Toggle(DELIMITER_LED2, 1);
 	}
 	else{
-		set_LEDS(DELIMITER_LED1, 0);
-		set_LEDS(DELIMITER_LED2, 0);
+		set_Toggle(DELIMITER_LED1, 0);
+		set_Toggle(DELIMITER_LED2, 0);
 	}
 }
 
@@ -360,6 +382,7 @@ int main(void)
 
   uint32_t onboard_timer = 0; //timer for onboard LED
   uint32_t clock_timer = 0;
+  uint32_t rainbow_timer = 0;
   set_digital_clock(delimiter_toggle);
 
   send_LEDS();
@@ -376,12 +399,18 @@ int main(void)
 		  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 	  }
 
-	  if(data_sent && now_tick - clock_timer >= 1000){
+	  if(data_sent && (now_tick - clock_timer >= 1000)){
 		  delimiter_toggle = !delimiter_toggle;
 		  clock_timer = now_tick;
 		  update_time();
 		  set_digital_clock(delimiter_toggle);
 		  send_LEDS();
+	  }
+
+	  if(data_sent && (now_tick - rainbow_timer >= 20)) {
+	      rainbow_timer = now_tick;
+	      rainbow_effect(now_tick);  // Now runs at RAINBOW_DELAY_MS (~20 ms)
+	      send_LEDS();
 	  }
 
 	  if(alarm_status){
