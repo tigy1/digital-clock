@@ -49,9 +49,9 @@ typedef struct{
 #define BIRTH_MONTH 6
 #define BIRTH_DAY 29
 
-#define DHT11_PORT GPIOB
-#define DHT11_PIN 10
-#define DHT11_INTERVAL 300000 //ms
+#define DHT11_PORT DHT11_Data_GPIO_Port
+#define DHT11_PIN DHT11_Data_Pin
+#define DHT11_INTERVAL 300000 //ms !!!!REMEMBER TO USE THIS LATER!!!!!!!!!!!!!1
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -70,7 +70,7 @@ UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 static uint16_t pulse_arr[24*LED_NUM + 40]; // 24 bits per LED + reset pulse (> 50us = 40 slots at 1.25 µs per bit)
-static uint8_t digit_table[12] = {
+static uint8_t digit_table[13] = {
 	0b1111101, //0
 	0b0000101, //1
 	0b1101110, //2
@@ -111,7 +111,7 @@ void reset_all_LEDS(void);
 void set_Toggle(int led_pos, uint8_t toggle);
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim);
 void set_digital_clock(uint8_t delimiter);
-void set_time(int seconds, int minutes, int hours, int week_day, int month_day, int month, int year, int AMPM);
+void set_time(int seconds, int minutes, int hours, int week_day, int month_day, int month, int year);
 uint8_t dectoBCD(int num);
 int BCDtodec(uint8_t bin);
 void initiate_time(void);
@@ -119,10 +119,10 @@ void set_birthday_alarm(int day_of_month);
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 void set_gpio_outin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, uint8_t status);
 void delay_us(uint16_t us);
-void dht11_initialization();
+uint8_t dht11_initialization();
 uint8_t dht11_response();
 uint8_t dht11_byte_read();
-void calculate_feelslike_temp(uint8_t temp, uint8_t humidity);
+uint8_t calculate_feelslike_temp(uint8_t temp, uint8_t humidity);
 float celsius_to_fahrenheit(uint8_t temp);
 float fahrenheit_to_celsius(uint8_t temp);
 void set_temp(uint8_t temp);
@@ -309,8 +309,7 @@ void update_time(){
     HAL_I2C_Mem_Read(&hi2c1, DS3231_ADDRESS << 1, 0x04, 1, &buffer[2], 2, 1000); //read day in month & current month
 
     curr_time.minutes = BCDtodec(buffer[0]);
-    curr_time.hours = BCDtodec(buffer[1] & 0x1F);
-    curr_time.AMPM = (buffer[1] >> 5) & 0x01;
+    curr_time.hours = BCDtodec(buffer[1] & 0x3F);
     curr_time.day_month = BCDtodec(buffer[2]);
     curr_time.month = BCDtodec(buffer[3] & 0x1F);
 }
@@ -351,12 +350,12 @@ void set_birthday_alarm(int day_of_month){
 //-------------------------------------------------------------------> DHT11 setup
 void set_gpio_outin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, uint8_t status){ //1 for output, 0 for input
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
+	GPIO_InitStruct.Pin = GPIO_Pin;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	if(status == 1){
-		GPIO_InitStruct.Pin = GPIO_Pin;
 		GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 		GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	} else{
-		GPIO_InitStruct.Pin = GPIO_Pin;
 		GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
 	}
 	HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
@@ -367,37 +366,39 @@ void delay_us(uint16_t us){
 	while (__HAL_TIM_GET_COUNTER(&htim3) < us);  // wait for the counter to reach the us input in the parameter
 }
 
-void dht11_initialization(){
+uint8_t dht11_initialization(){
 	uint8_t confirm_check = 0; //bool to check if dht11 return signal is correct
 	while(!confirm_check){
-		set_gpio_outin(DHT11_PORT, DHT11_PIN, 1);
+		set_gpio_outin(DHT11_PORT, DHT11_PIN, 1); //output
 		HAL_GPIO_WritePin(DHT11_PORT, DHT11_PIN, 0);
-		delay_us(18000);
+		HAL_Delay(20); //20ms
 		HAL_GPIO_WritePin(DHT11_PORT, DHT11_PIN, 1);
-		delay_us(30);
-		set_gpio_outin(DHT11_PORT, DHT11_PIN, 0);
-
+		delay_us(30); //30us
+		set_gpio_outin(DHT11_PORT, DHT11_PIN, 0); //input
 		confirm_check = dht11_response();
+
 		if(!confirm_check){
 			HAL_Delay(1000);
 		}
 	}
+	return confirm_check;
 }
 
 uint8_t dht11_response(){
 	uint8_t res = 0;
-	delay_us(40);
+	delay_us(40); //40 us
 	if(!HAL_GPIO_ReadPin(DHT11_PORT, DHT11_PIN)){
 		delay_us(80);
 		if(HAL_GPIO_ReadPin(DHT11_PORT, DHT11_PIN)){
 			res = 1;
-		} else{
-			res = -1;
 		}
-	} else{
-		res = -1;
 	}
-	while ((HAL_GPIO_ReadPin(DHT11_PORT, DHT11_PIN)));   // wait for pin to go low
+	uint32_t start = HAL_GetTick();
+	while (HAL_GPIO_ReadPin(DHT11_PORT, DHT11_PIN)) { // !!! wait for pin to go low
+		if (HAL_GetTick() - start > 2) {  // 2 ms timeout
+			return 0;  // line never went LOW again, abort
+		}
+	}
 	return res;
 }
 
@@ -408,13 +409,13 @@ uint8_t dht11_byte_read(){
 		delay_us(40);
 		if(HAL_GPIO_ReadPin(DHT11_PORT, DHT11_PIN)){
 			res |= (1 << (7-i));
-			while ((HAL_GPIO_ReadPin (DHT11_PORT, DHT11_PIN)));  // wait for pin to go low
+			while ((HAL_GPIO_ReadPin (DHT11_PORT, DHT11_PIN)));
 		}
 	}
 	return res;
 }
 
-void calculate_feelslike_temp(uint8_t temp, uint8_t humidity){
+uint8_t calculate_feelslike_temp(uint8_t temp, uint8_t humidity){
 	float f_temp = celsius_to_fahrenheit(temp);
 	if(f_temp >= 80){
 		float heat_index =
@@ -445,8 +446,15 @@ float fahrenheit_to_celsius(uint8_t temp){
 void set_temp(uint8_t temp){ //displays temp on clock, !!!probably only use Celsius for now
 	set_digit(3, 10); //1st digit from right, temperature scale (C/F), 10 is index for celsius
 	set_digit(2, 12); //2nd digit from right, temp degree symbol, 12 is index for symbol in digital table above
-	set_digit(1, temp.hours%10); //3nd digit from right, one's temp value
-	set_digit(0, temp.hours/10); //4th digit from right, ten's temp value
+	set_digit(1, temp%10); //3nd digit from right, one's temp value
+	set_digit(0, temp/10); //4th digit from right, ten's temp value
+
+	set_Toggle(DELIMITER_LED1, 0); //turn off clock delimitor
+	set_Toggle(DELIMITER_LED2, 0);
+
+	for(int i = 0; i < LED_NUM; i++){
+		set_LEDS(255, 0, 0, i);
+	}
 }
 
 /* USER CODE END 0 */
@@ -486,6 +494,7 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start(&htim3);
   initiate_time();
   HAL_Delay(100);
   update_time();
@@ -499,8 +508,11 @@ int main(void)
   uint32_t dht11_timer = 0;
 
   uint8_t delimiter_toggle = 1;
-  set_digital_clock(delimiter_toggle);
+  if(!clock_temp_toggle){
+	  set_digital_clock(delimiter_toggle);
+  }
 
+  //sets all colors to red
   if(!alarm_status){ //temp, move to BLE receive function
 	  for(int i = 0; i < LED_NUM; i++){
 		  set_LEDS(255, 0, 0, i);
@@ -508,6 +520,7 @@ int main(void)
   }
 
   send_LEDS();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -537,27 +550,20 @@ int main(void)
 		  }
 	  }
 
-	  if (clock_temp_toggle && data_sent && now_tick - dht11_timer >= DHT11_INTERVAL) {
+	  //an infinite loop is happening
+	  if (clock_temp_toggle && data_sent && now_tick - dht11_timer >= 2000) {
 	      dht11_timer = now_tick;
-	      rel_hum_int = 0;
-	      rel_hum_dec = 0;
-	      temp_int = 0;
-	      temp_dec = 0;
-	      check_sum = 0;
-	      while(1){
-			  dht11_initialization();
-			  uint8_t response_check = dht11_response();
-			  if(response_check == 1){
-			      rel_hum_int = dht11_byte_read();
-			      rel_hum_dec = dht11_byte_read();
-			      temp_int = dht11_byte_read();
-			      temp_dec = dht11_byte_read();
-			      check_sum = dht11_byte_read();
-			      if(rel_hum_int + rel_hum_dec + temp_int + temp_dec == check_sum){
-					  break;
-			      }
+	      uint8_t rel_hum_int = 0, rel_hum_dec = 0, temp_int = 0, temp_dec = 0, check_sum = 0;
+	      while(dht11_initialization()){
+			  rel_hum_int = dht11_byte_read();
+			  rel_hum_dec = dht11_byte_read();
+			  temp_int = dht11_byte_read();
+			  temp_dec = dht11_byte_read();
+			  check_sum = dht11_byte_read();
+			  if(rel_hum_int + rel_hum_dec + temp_int + temp_dec == check_sum){
+				  break;
 			  }
-			  HAL_Delay(10);
+			  HAL_Delay(100);
 	      }
 	      uint8_t temperature = calculate_feelslike_temp(temp_int, rel_hum_int);
 	      set_temp(temperature);
