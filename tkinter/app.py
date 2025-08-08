@@ -8,6 +8,7 @@ _OFF_WHITE = '#f0f1f2'
 _AQUA = '#C0FAFF'
 _DARK_NAVY_BLUE = '#132135'
 _DARK_BLUE = '#2D507F'
+_MEDIUM_BLUE = '#4288C5'
 
 _WINDOW_WIDTH = 630
 _WINDOW_HEIGHT_INITIAL = 80
@@ -66,10 +67,9 @@ class ClockUI:
 
     def _on_button_press(self):
         self._inp_button.focus_set()
-        location = self._inp_location_text.get() #work on
+        location = self._inp_location_text.get() #WIP
 
         self._window.geometry(f'{_WINDOW_WIDTH}x{_WINDOW_HEIGHT_FINAL}')
-        self._window.rowconfigure(1, weight=1000)
 
         #rgb panel
         self._load_rgb()
@@ -98,28 +98,42 @@ class ClockUI:
     def _load_time_clock(self):
         self._data_tab = CTkTabview(
             master=self._window,
-            width=300, height=200
+            width=300,
+            anchor='w',
+            fg_color=_DARK_NAVY_BLUE,
+            text_color=_OFF_WHITE,
+            segmented_button_fg_color=_OFF_WHITE,
+            segmented_button_selected_color=_DARK_BLUE,
+            segmented_button_unselected_color=_DARK_GRAY,
+            segmented_button_selected_hover_color=_DARK_NAVY_BLUE,
+            segmented_button_unselected_hover_color=_MEDIUM_BLUE,
+            #border
+            corner_radius=16,
+            border_width=2,
+            border_color=_OFF_WHITE,
         )
         self._data_tab.add('Time')
         self._data_tab.add('Weather')
 
     def _reveal_final(self):
         #RGB display
-        self._rgb_frame.grid(row=1, column=0, padx=10, sticky='w' + 'n' + 's')
+        self._rgb_frame.grid(row=1, column=0, padx=(10,0), pady=10, sticky='w' + 'n' + 's')
 
         #TAB display
-        self._data_tab.grid(row=1, column=0, padx=10, pady=10, sticky='e' + 'n' + 's')
+        self._data_tab.grid(row=1, column=1, padx=10, pady=(0,10), columnspan=1, sticky='w' + 'e' + 'n' + 's')
 
     def run(self):
         #window grid configure
         self._window.columnconfigure(0, weight=1)
         self._window.rowconfigure(0, weight=1)
+        self._window.rowconfigure(1, weight=1000)
+        self._window.columnconfigure(1, weight=1000)
 
-        #frame grid configure
+        #frame entry configure
         self._inp_frame.columnconfigure(0, weight=100)
         self._inp_frame.columnconfigure(1, weight=1)
         self._inp_frame.rowconfigure(0, weight=1)
-        self._inp_frame.grid(row=0, column=0, padx=10, pady= 10, sticky='n')
+        self._inp_frame.grid(row=0, column=0, columnspan=2, padx=10, pady=(10,0), sticky='n')
 
         #entry grid
         self._inp_location_text.grid(row=0, column=0, padx=(10,3.5), sticky='w' + 'e')
