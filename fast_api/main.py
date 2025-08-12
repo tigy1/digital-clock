@@ -43,6 +43,8 @@ async def nws(latitude: float, longitude: float) -> dict:
                 'status': 'SUCCESS',
                 'air_temp': air_temp,
                 'feels_temp': feels_temp,
+                'humidity': humidity,
+                'wind_spd': wind_spd,
                 'weather_location': location_description
             }
     return {'status': 'DATA ERROR'}

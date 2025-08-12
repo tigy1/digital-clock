@@ -18,6 +18,12 @@ assert math.isclose(fahrenheit_to_celsius(32), 0)
 assert math.isclose(fahrenheit_to_celsius(212.9), 100.5, rel_tol=1e-5)
 assert math.isclose(fahrenheit_to_celsius(-49), -45)
 
+def celsius_to_fahrenheit(temp: float) -> float:
+    return (temp) * (9.0/5) + 32
+assert math.isclose(celsius_to_fahrenheit(0), 32)
+assert math.isclose(celsius_to_fahrenheit(100.5), 212.9, rel_tol=1e-5)
+assert math.isclose(celsius_to_fahrenheit(-45), -49)
+
 #processes weather queries and prints them out
 def get_hourly_data(nws_data: dict) -> dict: 
     hourly_data = nws_data['properties']['periods'][0] #data of first hour block
