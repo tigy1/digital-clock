@@ -55,11 +55,12 @@ async def time(key: str, latitude: float, longitude: float) -> dict:
     data = await request_time(key, coords)
     if data is not None and len(data) != 0:
         timestamp: str = data['formatted']
-        time_tuple = logic.parse_timestamp(timestamp) #hour, minute
+        hour, minute, second = logic.parse_timestamp(timestamp)
         return {
             'status': 'SUCCESS',
-            'hour': time_tuple[0],
-            'minute': time_tuple[1]
+            'hour': hour,
+            'minute': minute,
+            'second': second
         }
     else:
         return {'status': 'DATA ERROR'}

@@ -38,4 +38,4 @@ def parse_timestamp(timestamp: str) -> tuple[int, int]:
     date_time_seperator_index = timestamp.index(' ')
     time_str = timestamp[date_time_seperator_index + 1:].split(':')
     hour_str, minute_str, second_str = time_str
-    return int(hour_str), int(minute_str)
+    return int(hour_str), int(minute_str), int(second_str)

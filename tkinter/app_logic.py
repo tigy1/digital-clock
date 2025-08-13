@@ -20,9 +20,6 @@ def parse_time(time: str) -> str:
         time = time[:ind]
         if meridiem == 'PM':
             time_adjustment = 12
-    else: #from military time
-        if int(time[:2]) > 12:
-            time_adjustment = -12
     time_str = time.split(':')
     hour, minute = map(int, time_str)
     hour += time_adjustment

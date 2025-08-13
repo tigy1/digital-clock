@@ -90,6 +90,25 @@ class ClockUI:
         self._time_format_switch.configure(state="disabled")
         self._time_format_switch.after(1000, lambda: self._time_format_switch.configure(state="normal"))
 
+    def _on_hours_option(self, value: str):
+        placeholder = int(value)
+        original_time = self._time_label.cget('text')
+        if ' ' in original_time:
+            if placeholder > 12:
+                placeholder %= 12
+                original_time = original_time.replace('AM', 'PM')
+            else:
+                original_time = original_time.replace('PM', 'AM')
+        
+        adjusted_time = f'{placeholder:02d}' + original_time[2:]
+        self._time_label.configure(text=adjusted_time)
+
+    def _on_minutes_option(self, value):
+        placeholder = int(value)
+        original_time = self._time_label.cget('text')
+        adjusted_time = original_time[:3] + f'{placeholder:02d}' + original_time[5:]
+        self._time_label.configure(text=adjusted_time)
+
     def _on_degree_switch(self) -> None:
         degree_index = self._weather_temp_label.cget('text').index('°')
         weather_temp = int(self._weather_temp_label.cget('text')[:degree_index])
@@ -113,6 +132,10 @@ class ClockUI:
         #WIP TO ONLY PERSONALLY INTERFACE W/ DIGITAL CLOCK
         self._feels_temp_switch.configure(state="disabled")
         self._feels_temp_switch.after(1000, lambda: self._feels_temp_switch.configure(state="normal"))
+
+    def _on_update_time_button_press(self):
+        print("Updating!")
+        pass #sends displayed time to physical clock
 
     def _load_rgb(self):
         self._rgb_frame = self._make_frame(200,300)
@@ -180,10 +203,43 @@ class ClockUI:
         self._time_label = CTkLabel(
             master=self._time_tab,
             font=_TEMP_TIME_FONT,
-            text='00:00 AM',
+            text='00:00',
             text_color=_OFF_WHITE
         )
-
+        hour_list = [f"{h:02d}" for h in range(24)]
+        self._hour_option = CTkOptionMenu(
+            master=self._time_tab,
+            font=_DEFAULT_FONT,
+            text_color=_OFF_WHITE,
+            values=hour_list,
+            command=self._on_hours_option
+        )
+        self._hour_label = CTkLabel(
+            master=self._time_tab,
+            font=_DEFAULT_FONT,
+            text='Configure Hour',
+            text_color=_OFF_WHITE,
+        )
+        minute_list = [f"{m:02d}" for m in range(60)]
+        self._minute_option = CTkOptionMenu(
+            master=self._time_tab,
+            font=_DEFAULT_FONT,
+            text_color=_OFF_WHITE,
+            values=minute_list,
+            command=self._on_minutes_option
+        )
+        self._minute_label = CTkLabel(
+            master=self._time_tab,
+            font=_DEFAULT_FONT,
+            text='Configure Minutes',
+            text_color=_OFF_WHITE
+        )
+        self._update_time_button = self._make_button(
+            master=self._time_tab, 
+            text='Update Time', 
+            command=self._on_update_time_button_press
+        )
+    
         #weather tab
         self._weather_tab = self._data_tab.add('Weather')
         self._degree_switch = CTkSwitch(
@@ -296,9 +352,19 @@ class ClockUI:
         #clock tab display
         self._time_tab.columnconfigure(0, weight=1)
         self._time_tab.rowconfigure(0, weight=1)
+        self._time_tab.rowconfigure(1, weight=1)
+        self._time_tab.rowconfigure(2, weight = 10)
+
         self._clock_icon_label.grid(row=0, column=0, pady=(20,0), sticky='w' + 'n')
-        self._time_label.grid(row=0, column=0, padx=(75,0), pady=(10,0), sticky='w' + 'n' + 'e')
-        self._time_format_switch.grid()
+        self._time_label.grid(row=0, column=0, padx=(75,0), pady=(10,0), sticky='w' + 'n')
+
+        self._time_format_switch.grid(row=1, column=0, sticky='w' + 'n')
+
+        self._hour_option.grid(row=2, column=0, pady=(40,0), sticky='w' + 'n')
+        self._hour_label.grid(row=2, column=0, pady=(5,0), sticky='w' + 'n')
+        self._minute_option.grid(row=2, column=0, pady=(40,0), sticky='e' + 'n')
+        self._minute_label.grid(row=2, column=0, padx=15, pady=(5,0), sticky='e' + 'n')
+        self._update_time_button.grid(row=2, column=0, sticky='w' + 'e' + 's')
 
         #weather tab display
         self._weather_tab.columnconfigure(0, weight=1)
