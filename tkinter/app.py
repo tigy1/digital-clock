@@ -1,15 +1,11 @@
 from customtkinter import *
 from CTkColorPicker import *
 from PIL import Image
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from fast_api.utils.logic import fahrenheit_to_celsius
-from fast_api.utils.logic import celsius_to_fahrenheit
+import app_logic
 
 _DEFAULT_FONT = ('Avenir', 16)
-_TEMP_TIME_FONT = ('Avenir', 60, 'bold')
+_TEMP_TIME_FONT = ('Avenir', 60)
 _MAX_CHAR = 60
 _CORNER_RADIUS = 16
 
@@ -81,27 +77,42 @@ class ClockUI:
 
         self._reveal_final()
 
+    def _on_time_format_switch(self) -> None:
+        hour, minute = app_logic.parse_time(self._time_label.cget('text'))
+        if self._time_format_switch.get() == 1:
+            meridiem = 'AM'
+            if hour > 12:
+                meridiem = 'PM'
+                hour %= 12
+            self._time_label.configure(text=f'{hour:02d}:{minute:02d} {meridiem}')
+        else:
+            self._time_label.configure(text=f'{hour:02d}:{minute:02d}')
+        self._time_format_switch.configure(state="disabled")
+        self._time_format_switch.after(1000, lambda: self._time_format_switch.configure(state="normal"))
+
     def _on_degree_switch(self) -> None:
         degree_index = self._weather_temp_label.cget('text').index('°')
         weather_temp = int(self._weather_temp_label.cget('text')[:degree_index])
         parsed_feels = self._feels_temp_label.cget("text")[len('Feels Like: '):]
         feels_value = int(parsed_feels[:degree_index])
         if self._degree_switch.get() == 1:
-            new_weather = int(celsius_to_fahrenheit(weather_temp))
+            new_weather = int(app_logic.celsius_to_fahrenheit(weather_temp))
             self._weather_temp_label.configure(text=f'{new_weather}°F')
-            new_feels = int(celsius_to_fahrenheit(feels_value))
+            new_feels = int(app_logic.celsius_to_fahrenheit(feels_value))
             self._feels_temp_label.configure(text=f'Feels Like: {new_feels}°F')
         else:
-            new_weather = int(fahrenheit_to_celsius(weather_temp))
+            new_weather = int(app_logic.fahrenheit_to_celsius(weather_temp))
             self._weather_temp_label.configure(text=f'{new_weather}°C')
-            new_feels = int(fahrenheit_to_celsius(feels_value))
+            new_feels = int(app_logic.fahrenheit_to_celsius(feels_value))
             self._feels_temp_label.configure(text=f'Feels Like: {new_feels}°C')
         #disable for 1 second
         self._degree_switch.configure(state="disabled")
         self._degree_switch.after(1000, lambda: self._degree_switch.configure(state="normal"))
 
-    def on_feels_air_switch(self):
-        pass
+    def _on_feels_air_switch(self):
+        #WIP TO ONLY PERSONALLY INTERFACE W/ DIGITAL CLOCK
+        self._feels_temp_switch.configure(state="disabled")
+        self._feels_temp_switch.after(1000, lambda: self._feels_temp_switch.configure(state="normal"))
 
     def _load_rgb(self):
         self._rgb_frame = self._make_frame(200,300)
@@ -145,10 +156,36 @@ class ClockUI:
             border_color=_OFF_WHITE,
         )
         #clock tab
-        self._clock_tab = self._data_tab.add('Time')
+        self._time_tab = self._data_tab.add('Time')
+        self._time_format_switch = CTkSwitch(
+            master=self._time_tab,
+            corner_radius=_CORNER_RADIUS,
+            text='Military Time/Standard Time',
+            font=_DEFAULT_FONT,
+            text_color=_OFF_WHITE,
+            fg_color=_DARK_BLUE,
+            progress_color=_DARK_RED,
+            command=self._on_time_format_switch,
+            #border
+            border_color=_OFF_WHITE,
+            border_width=2
+        )
+        clock_img = Image.open('tkinter/icons/clock_icon.png')
+        _clock_icon = CTkImage(light_image=clock_img, size=(64, 60))
+        self._clock_icon_label = CTkLabel(
+            master=self._time_tab,
+            image=_clock_icon,
+            text=''
+        )
+        self._time_label = CTkLabel(
+            master=self._time_tab,
+            font=_TEMP_TIME_FONT,
+            text='00:00 AM',
+            text_color=_OFF_WHITE
+        )
 
         #weather tab
-        self._weather_tab = self._data_tab.add('Weather') #ADD DELAY WIP
+        self._weather_tab = self._data_tab.add('Weather')
         self._degree_switch = CTkSwitch(
             master=self._weather_tab,
             corner_radius=_CORNER_RADIUS,
@@ -162,15 +199,17 @@ class ClockUI:
             border_color=_OFF_WHITE,
             border_width=2
         )
-        self._feels_temp_switch = CTkSwitch( #ADD DELAY WIP
+        self._feels_temp_switch = CTkSwitch( 
             master=self._weather_tab,
             text='Feels-Like Temp/Air Temp',
             font=_DEFAULT_FONT,
             text_color=_OFF_WHITE,
+            fg_color=_DARK_BLUE,
             corner_radius=_CORNER_RADIUS,
+            command=self._on_feels_air_switch,
+            #border
             border_color=_OFF_WHITE,
-            border_width=2,
-            fg_color=_DARK_BLUE
+            border_width=2
         )
         cloud_img = Image.open('tkinter/icons/cloud.png')
         weather_icon = CTkImage(light_image=cloud_img, size=(64, 60))
@@ -254,6 +293,13 @@ class ClockUI:
         #TAB display
         self._data_tab.grid(row=1, column=1, padx=10, pady=(0,10), columnspan=1, sticky='w' + 'e' + 'n' + 's')
 
+        #clock tab display
+        self._time_tab.columnconfigure(0, weight=1)
+        self._time_tab.rowconfigure(0, weight=1)
+        self._clock_icon_label.grid(row=0, column=0, pady=(20,0), sticky='w' + 'n')
+        self._time_label.grid(row=0, column=0, padx=(75,0), pady=(10,0), sticky='w' + 'n' + 'e')
+        self._time_format_switch.grid()
+
         #weather tab display
         self._weather_tab.columnconfigure(0, weight=1)
         self._weather_tab.rowconfigure(0, weight=1)
@@ -263,8 +309,8 @@ class ClockUI:
         self._weather_icon_label.grid(row=0, column=0, pady=(20,0), sticky='w' + 'n')
         self._weather_temp_label.grid(row=0, column=0, padx=75, sticky='w' + 'n')
         self._feels_temp_label.grid(row=0, column=0, padx=75, pady=(63,0), sticky='w' + 'n')
-        self._weather_wind_label.grid(row=0, column=0, padx=10, pady=(25,0),sticky='e' + 'n')
-        self._weather_humidity_label.grid(row=0, column=0, padx=33, pady=(25,0), sticky='e')
+        self._weather_wind_label.grid(row=0, column=0, padx=5, pady=(25,0), sticky='e' + 'n')
+        self._weather_humidity_label.grid(row=0, column=0, padx=28, pady=(25,0), sticky='e')
 
         self._weather_location_label.grid(row=1, column=0, pady=(15, 0), sticky='w' + 'n')
         self._degree_switch.grid(row=1, column=0, pady=(65,0), sticky='w' + 'n')
