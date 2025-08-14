@@ -77,6 +77,11 @@ class ClockUI:
 
         self._reveal_final()
 
+    def _on_color_button(self) -> None:
+        print("Selected color:", self._color_picker.get())
+        app_logic.delay_second(self._color_button)
+        pass #work on to send to physical LEDS to change color
+
     def _on_time_format_switch(self) -> None:
         hour, minute = app_logic.parse_time(self._time_label.cget('text'))
         if self._time_format_switch.get() == 1:
@@ -87,8 +92,7 @@ class ClockUI:
             self._time_label.configure(text=f'{hour:02d}:{minute:02d} {meridiem}')
         else:
             self._time_label.configure(text=f'{hour:02d}:{minute:02d}')
-        self._time_format_switch.configure(state="disabled")
-        self._time_format_switch.after(1000, lambda: self._time_format_switch.configure(state="normal"))
+        app_logic.delay_second(self._time_format_switch)
 
     def _on_hours_option(self, value: str):
         placeholder = int(value)
@@ -125,17 +129,15 @@ class ClockUI:
             new_feels = int(app_logic.fahrenheit_to_celsius(feels_value))
             self._feels_temp_label.configure(text=f'Feels Like: {new_feels}°C')
         #disable for 1 second
-        self._degree_switch.configure(state="disabled")
-        self._degree_switch.after(1000, lambda: self._degree_switch.configure(state="normal"))
+        app_logic.delay_second(self._degree_switch)
 
     def _on_feels_air_switch(self):
         #WIP TO ONLY PERSONALLY INTERFACE W/ DIGITAL CLOCK
-        self._feels_temp_switch.configure(state="disabled")
-        self._feels_temp_switch.after(1000, lambda: self._feels_temp_switch.configure(state="normal"))
+        app_logic.delay_second(self._feels_temp_switch)
 
     def _on_update_time_button_press(self):
         print("Updating!")
-        pass #sends displayed time to physical clock
+        app_logic.delay_second(self._update_time_button)
 
     def _load_rgb(self):
         self._rgb_frame = self._make_frame(200,300)
@@ -158,7 +160,7 @@ class ClockUI:
             text="Set Color",
             master=self._rgb_frame,
             width=250,
-            command=lambda: print("Selected color:", self._color_picker.get())  #WIP
+            command=self._on_color_button
         )
 
     def _load_time_clock(self):
@@ -239,7 +241,7 @@ class ClockUI:
             text='Update Time', 
             command=self._on_update_time_button_press
         )
-    
+        
         #weather tab
         self._weather_tab = self._data_tab.add('Weather')
         self._degree_switch = CTkSwitch(

@@ -23,8 +23,10 @@ def parse_time(time: str) -> str:
     time_str = time.split(':')
     hour, minute = map(int, time_str)
     hour += time_adjustment
-
     if hour >= 24:
         hour = 0
-
     return hour, minute
+
+def delay_second(ctk_obj) -> None:
+    ctk_obj.configure(state="disabled")
+    ctk_obj.after(1000, lambda: ctk_obj.configure(state="normal"))
