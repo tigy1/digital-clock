@@ -12,8 +12,8 @@ from utils import logic
 app = FastAPI()
 
 @app.get('/geocode/')
-async def nominatim(location: str) -> dict:
-    data = await request_nominatim_data(location)
+async def nominatim(email: str, location: str) -> dict:
+    data = await request_nominatim_data(email, location)
     if len(data) != 0:
         location_coords = (float(data[0]["lat"]), float(data[0]["lon"]))
         return {
@@ -24,9 +24,9 @@ async def nominatim(location: str) -> dict:
 
 #in fahrenheit
 @app.get('/weather/')
-async def nws(latitude: float, longitude: float) -> dict:
+async def nws(email: str, latitude: float, longitude: float) -> dict:
     location = latitude, longitude
-    nws_data = await request_nws_data(location)
+    nws_data = await request_nws_data(email, location)
     if len(nws_data) != 0:
         first_hour_data = nws_data['properties']['periods'][0]
         air_temp = first_hour_data['temperature']
@@ -36,7 +36,7 @@ async def nws(latitude: float, longitude: float) -> dict:
 
         coords: list[list] = nws_data['geometry']['coordinates'][0]
         coordinate_average = logic.average_coords(coords)
-        reverse_data = await request_reverse_location(coordinate_average)
+        reverse_data = await request_reverse_location(email, coordinate_average)
         if len(reverse_data) != 0:
             location_description = reverse_data['display_name']
             return {

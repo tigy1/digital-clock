@@ -377,8 +377,8 @@ class ClockUI:
         self._weather_icon_label.grid(row=0, column=0, pady=(20,0), sticky='w' + 'n')
         self._weather_temp_label.grid(row=0, column=0, padx=75, sticky='w' + 'n')
         self._feels_temp_label.grid(row=0, column=0, padx=75, pady=(63,0), sticky='w' + 'n')
-        self._weather_wind_label.grid(row=0, column=0, padx=5, pady=(25,0), sticky='e' + 'n')
-        self._weather_humidity_label.grid(row=0, column=0, padx=28, pady=(25,0), sticky='e')
+        self._weather_wind_label.grid(row=0, column=0, padx=10, pady=(25,0), sticky='e' + 'n')
+        self._weather_humidity_label.grid(row=0, column=0, padx=32, pady=(25,0), sticky='e')
 
         self._weather_location_label.grid(row=1, column=0, pady=(15, 0), sticky='w' + 'n')
         self._degree_switch.grid(row=1, column=0, pady=(65,0), sticky='w' + 'n')
