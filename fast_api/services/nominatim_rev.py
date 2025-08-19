@@ -7,7 +7,6 @@ async def request_reverse_location(email: str, location: tuple[float:'latitude',
     headers = {
         'Referer': f'https://www.ics.uci.edu/~thornton/icsh32/ProjectGuide/Project3/{email}'
     }
-    await asyncio.sleep(1)
     async with httpx.AsyncClient(timeout=10) as client:
         try:
             response = await client.get(url, headers=headers)

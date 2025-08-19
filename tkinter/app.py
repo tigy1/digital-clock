@@ -3,6 +3,7 @@ from CTkColorPicker import *
 from PIL import Image
 
 import app_logic
+import api_calls
 
 _DEFAULT_FONT = ('Avenir', 16)
 _TEMP_TIME_FONT = ('Avenir', 60)
@@ -20,6 +21,10 @@ _MEDIUM_BLUE = '#4288C5'
 _WINDOW_WIDTH = 630
 _WINDOW_HEIGHT_INITIAL = 80
 _WINDOW_HEIGHT_FINAL = 400
+
+_EMAIL = 'hto8031@sdsu.edu'
+_TIME_KEY= '22JLC1I1VJK5'
+
 
 class ClockUI:
     def __init__(self):
@@ -65,26 +70,73 @@ class ClockUI:
 
     def _on_location_button_press(self) -> None:
         self._inp_button.focus_set()
-        location = self._inp_location_text.get() #WIP
-
-        self._window.geometry(f'{_WINDOW_WIDTH}x{_WINDOW_HEIGHT_FINAL}')
-
+        location = self._inp_location_text.get()
+        app_logic.delay_second(self._inp_button)
+        if len(location) < 1:
+            self._inp_location_text.configure(placeholder_text='Please Input A Valid Location')
+            return
+        geocode = api_calls.request_geocode(email=_EMAIL, location=location)
+        if geocode['status'] == 'DATA ERROR':
+            self._inp_location_text.delete(0, "end")
+            self._inp_location_text.configure(placeholder_text='Please Input A Valid Location')
+            return
+        
         #rgb panel
         self._load_rgb()
 
         #tab to switch b/tw time & clock
-        self._load_time_clock()
+        latitude, longitude = geocode['location_coords']
+        self._load_time_clock(latitude, longitude)
+        self._on_tab_segmented_button(latitude, longitude)
 
+        self._window.geometry(f'{_WINDOW_WIDTH}x{_WINDOW_HEIGHT_FINAL}')
         self._reveal_final()
 
-    def _on_color_button(self) -> None:
+    def _on_color_button(self):
         print("Selected color:", self._color_picker.get())
         app_logic.delay_second(self._color_button)
         pass #work on to send to physical LEDS to change color
 
+    def _on_tab_segmented_button(self, latitude: float, longitude: float):
+        curr_tab = self._data_tab.get()
+        if curr_tab == 'Time':
+            time_data = api_calls.request_time(_TIME_KEY, latitude, longitude)
+            hour = time_data['hour']
+            minute = time_data['minute']
+            if self._time_format_switch.get():  # ON → show 12h format
+                meridiem = "AM"
+                display_hour = hour
+                if hour == 0:
+                    display_hour = 12
+                elif hour >= 12:
+                    meridiem = "PM"
+                    if hour > 12:
+                        display_hour = hour - 12
+                self._time_label.configure(text=f"{display_hour:02d}:{minute:02d} {meridiem}")
+            else:  # OFF → show 24h
+                self._time_label.configure(text=f"{hour:02d}:{minute:02d}")
+        else:
+            weather_data = api_calls.request_weather(_EMAIL, latitude, longitude)
+            air_temp = weather_data['air_temp']
+            feels_temp = weather_data['feels_temp']
+            unit = '°F'
+            if not self._degree_switch.get():
+                air_temp = app_logic.fahrenheit_to_celsius(air_temp)
+                feels_temp = app_logic.fahrenheit_to_celsius(feels_temp)
+                unit = '°C'
+            self._weather_temp_label.configure(text=f'{int(air_temp)}{unit}')
+            self._feels_temp_label.configure(text=f'Feels Like: {int(feels_temp)}{unit}')
+            location = weather_data[('weather_location')]
+            self._weather_location_label.configure(text=f'In {location}')
+            wind_speed = weather_data[('wind_spd')]
+            self._weather_wind_label.configure(text=f'Wind Speed: {int(weather_data['wind_spd'])} mph')
+            humidity = weather_data[('humidity')]
+            self._weather_humidity_label.configure(text=f'Humidity: {humidity}%')
+        app_logic.delay_second(self._data_tab)
+            
     def _on_time_format_switch(self) -> None:
         hour, minute = app_logic.parse_time(self._time_label.cget('text'))
-        if self._time_format_switch.get() == 1:
+        if self._time_format_switch.get():
             meridiem = 'AM'
             if hour > 12:
                 meridiem = 'PM'
@@ -118,7 +170,7 @@ class ClockUI:
         weather_temp = int(self._weather_temp_label.cget('text')[:degree_index])
         parsed_feels = self._feels_temp_label.cget("text")[len('Feels Like: '):]
         feels_value = int(parsed_feels[:degree_index])
-        if self._degree_switch.get() == 1:
+        if self._degree_switch.get():
             new_weather = int(app_logic.celsius_to_fahrenheit(weather_temp))
             self._weather_temp_label.configure(text=f'{new_weather}°F')
             new_feels = int(app_logic.celsius_to_fahrenheit(feels_value))
@@ -163,7 +215,7 @@ class ClockUI:
             command=self._on_color_button
         )
 
-    def _load_time_clock(self):
+    def _load_time_clock(self, latitude: str, longitude: str):
         self._data_tab = CTkTabview(
             master=self._window,
             width=300,
@@ -175,6 +227,7 @@ class ClockUI:
             segmented_button_unselected_color=_DARK_GRAY,
             segmented_button_selected_hover_color=_DARK_BLUE,
             segmented_button_unselected_hover_color=_MEDIUM_BLUE,
+            command=lambda: self._on_tab_segmented_button(latitude, longitude),
             #border
             corner_radius=_CORNER_RADIUS,
             border_width=2,
@@ -241,7 +294,7 @@ class ClockUI:
             text='Update Time', 
             command=self._on_update_time_button_press
         )
-        
+
         #weather tab
         self._weather_tab = self._data_tab.add('Weather')
         self._degree_switch = CTkSwitch(
@@ -377,8 +430,8 @@ class ClockUI:
         self._weather_icon_label.grid(row=0, column=0, pady=(20,0), sticky='w' + 'n')
         self._weather_temp_label.grid(row=0, column=0, padx=75, sticky='w' + 'n')
         self._feels_temp_label.grid(row=0, column=0, padx=75, pady=(63,0), sticky='w' + 'n')
-        self._weather_wind_label.grid(row=0, column=0, padx=10, pady=(25,0), sticky='e' + 'n')
-        self._weather_humidity_label.grid(row=0, column=0, padx=32, pady=(25,0), sticky='e')
+        self._weather_wind_label.grid(row=0, column=0, padx=5, pady=(25,0), sticky='e' + 'n')
+        self._weather_humidity_label.grid(row=0, column=0, padx=28, pady=(25,0), sticky='e')
 
         self._weather_location_label.grid(row=1, column=0, pady=(15, 0), sticky='w' + 'n')
         self._degree_switch.grid(row=1, column=0, pady=(65,0), sticky='w' + 'n')
@@ -393,15 +446,15 @@ class ClockUI:
 
         #frame entry configure
         self._inp_frame.columnconfigure(0, weight=100)
-        self._inp_frame.columnconfigure(1, weight=1)
+        self._inp_frame.columnconfigure(1, weight=0)
         self._inp_frame.rowconfigure(0, weight=1)
         self._inp_frame.grid(row=0, column=0, columnspan=2, padx=10, pady=(10,0), sticky='n')
 
         #entry grid
-        self._inp_location_text.grid(row=0, column=0, padx=(10,3.5), sticky='w' + 'e')
+        self._inp_location_text.grid(row=0, column=0, padx=(10,4), sticky='w' + 'e')
 
         #button grid
-        self._inp_button.grid(row=0, column=1, padx=(3.5,10), sticky='w' + 'e')
+        self._inp_button.grid(row=0, column=1, padx=(4,10), sticky='w' + 'e')
 
         #start event loop
         self._window.mainloop()

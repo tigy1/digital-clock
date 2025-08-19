@@ -5,7 +5,6 @@ async def request_time(key: str, location: tuple[float, float:]) -> dict:
     latitude, longitude = location
     format = 'json'
     url = f'http://api.timezonedb.com/v2.1/get-time-zone?key={key}&format={format}&by=position&lat={latitude}&lng={longitude}'
-    await asyncio.sleep(1)
     async with httpx.AsyncClient(timeout=10) as client:
         try:
             response = await client.get(url)

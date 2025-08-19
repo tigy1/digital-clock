@@ -8,7 +8,6 @@ async def request_nominatim_data(email: str, location: str) -> dict:
     headers = {
         'Referer': f'https://www.ics.uci.edu/~thornton/icsh32/ProjectGuide/Project3/{email}'
     }
-    await asyncio.sleep(1)
     async with httpx.AsyncClient(timeout=10) as client:
         try:
             response = await client.get(url, headers=headers)

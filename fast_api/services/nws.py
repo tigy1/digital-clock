@@ -8,7 +8,6 @@ async def request_nws_data(email: str, location: tuple[float:'latitude', float:'
         "User-Agent": "(email)",
         "Accept": "application/geo+json"
     }
-    await asyncio.sleep(1)
     async with httpx.AsyncClient(timeout=10,follow_redirects=True) as client:
         try:
             response = await client.get(url, headers=headers)
