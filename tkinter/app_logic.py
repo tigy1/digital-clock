@@ -12,20 +12,20 @@ assert math.isclose(celsius_to_fahrenheit(0), 32)
 assert math.isclose(celsius_to_fahrenheit(100.5), 212.9, rel_tol=1e-5)
 assert math.isclose(celsius_to_fahrenheit(-45), -49)
 
-def parse_time(time: str) -> str:
-    time_adjustment = 0
-    if ' ' in time: #from standard time
-        ind = time.find(' ')
-        meridiem = time[ind + 1:]
-        time = time[:ind]
-        if meridiem == 'PM':
-            time_adjustment = 12
-    time_str = time.split(':')
-    hour, minute = map(int, time_str)
-    hour += time_adjustment
-    if hour >= 24:
-        hour = 0
-    return hour, minute
+def parse_time(hour: int, minute: int, time_format: bool) -> str:
+    #time_format: True → 12h with AM/PM, False → 24h
+    if time_format:
+        meridiem = "AM"
+        display_hour = hour
+        if hour == 0:
+            display_hour = 12
+        elif hour >= 12:
+            meridiem = "PM"
+            if hour > 12:
+                display_hour = hour - 12
+        return f"{display_hour:02d}:{minute:02d} {meridiem}"
+    else:  # 24-hour
+        return f"{hour:02d}:{minute:02d}"
 
 def delay_second(ctk_obj) -> None:
     ctk_obj.configure(state="disabled")
