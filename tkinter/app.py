@@ -25,7 +25,7 @@ _WINDOW_HEIGHT_FINAL = 400
 _EMAIL = 'hto8031@sdsu.edu'
 _TIME_KEY= '22JLC1I1VJK5'
 
-#TODO: UPDATE WEATHER AND TIME VARIABLES TO CACHE'D ATTRIBUTES TO MAKE IT EASIER, MAYBE SOME GLOBAL FLAGS TOO
+#TODO: IMPLEMENT COUNTING SECONDS AND INCREMENTING THE MINUTES
 
 class ClockUI:
     def __init__(self):
@@ -43,6 +43,8 @@ class ClockUI:
         self._RGB = None
         self._hour = None
         self._minute = None
+        
+        self._weather_refresh_job = None
 
         #input frame
         self._inp_frame = self._make_frame(610, 60)
@@ -91,15 +93,23 @@ class ClockUI:
             self._inp_location_text.delete(0, "end")
             self._inp_location_text.configure(placeholder_text='Please Input A Valid Location')
             return
-        
+        latitude, longitude = geocode['location_coords']
+
         #rgb panel
         self._load_rgb()
 
         #tab to switch b/tw time & clock
-        latitude, longitude = geocode['location_coords']
         self._load_time_clock()
+                
+        #api calls
+        try:
+            self._fetch_weather_api(latitude, longitude)
+        except ValueError as e:
+            print(f"Weather fetch failed: {e}")
+            self._inp_location_text.delete(0, "end")
+            self._inp_location_text.configure(placeholder_text='Please Input A Valid Location')
+            return
         self._fetch_time_api(latitude, longitude)
-        self._fetch_weather_api(latitude, longitude)
         self._schedule_weather_refresh(latitude, longitude)
 
         self._window.geometry(f'{_WINDOW_WIDTH}x{_WINDOW_HEIGHT_FINAL}')
@@ -373,22 +383,16 @@ class ClockUI:
         self._window.after(60_000, self._schedule_clock_tick)
 
     def _fetch_weather_api(self, latitude: float, longitude: float):
-        try:
             weather_data = api_calls.request_weather(_EMAIL, latitude, longitude)
             if weather_data['status'] == 'DATA ERROR':
-                raise 'DATA ERROR, data is empty'
-            # Cache the raw API values in Fahrenheit
+                raise ValueError('DATA ERROR, data is empty')
             self._air_temp_f = weather_data["air_temp"]
             self._feels_temp_f = weather_data["feels_temp"]
             self._humidity = weather_data["humidity"]
             self._wind_speed = weather_data["wind_spd"]
             location = weather_data["weather_location"]
-
-            # Update the UI using current switch state
-            self._update_weather_labels(location)
-
-        except Exception as e:
-            print(f"[ERROR] Failed to fetch weather data: {e}")
+            
+            self._update_weather_labels()
 
     def _update_weather_labels(self, location=None):
         """Update the weather tab labels using cached data."""
@@ -410,9 +414,16 @@ class ClockUI:
 
     def _schedule_weather_refresh(self, latitude: float, longitude: float):
         """Fetch and update weather every 10 minutes (600,000 ms)."""
-        self._fetch_weather_api(latitude, longitude)
-        self._window.after(600_000, lambda: self._schedule_weather_refresh(latitude, longitude))
+        # Cancel previous scheduled refresh if exists
+        if self._weather_refresh_job is not None:
+            self._window.after_cancel(self._weather_refresh_job)
 
+        # Schedule new refresh
+        self._fetch_weather_api(latitude, longitude)
+        self._weather_refresh_job = self._window.after(
+            600_000,
+            lambda: self._schedule_weather_refresh(latitude, longitude)
+    )
     def _reveal_final(self):
         #RGB display
         self._rgb_frame.columnconfigure(0, weight=1)

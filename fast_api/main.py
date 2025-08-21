@@ -38,7 +38,7 @@ async def nws(email: str, latitude: float, longitude: float) -> dict:
         coordinate_average = logic.average_coords(coords)
         reverse_data = await request_reverse_location(email, coordinate_average)
         if len(reverse_data) != 0:
-            location_description = reverse_data['display_name']
+            location_description = f'{reverse_data['address']['road']} {reverse_data['address']['postcode']}, {reverse_data['address']['state']}, {reverse_data['address']['country']}'
             return {
                 'status': 'SUCCESS',
                 'air_temp': air_temp,

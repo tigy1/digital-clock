@@ -9,6 +9,7 @@ async def request_reverse_location(email: str, location: tuple[float:'latitude',
     }
     async with httpx.AsyncClient(timeout=10) as client:
         try:
+            asyncio.sleep(1)
             response = await client.get(url, headers=headers)
             response.raise_for_status()
             data = response.json()

@@ -13,7 +13,7 @@ async def request_nws_data(email: str, location: tuple[float:'latitude', float:'
             response = await client.get(url, headers=headers)
             response.raise_for_status()
             grid_forecast = response.json()
-
+            asyncio.sleep(1)
             hourly_data_url = grid_forecast['properties']['forecastHourly']
             hourly_response = await client.get(hourly_data_url, headers=headers)
             hourly_response.raise_for_status()
