@@ -26,6 +26,9 @@ _EMAIL = 'hto8031@sdsu.edu'
 _TIME_KEY= '22JLC1I1VJK5'
 
 #TODO: IMPLEMENT COUNTING SECONDS AND INCREMENTING THE MINUTES
+#TODO: FIX ASYNC NOT WORKING
+#TODO: PARSE WEATHER BETTER
+#uvicorn main:app --reload
 
 class ClockUI:
     def __init__(self):
@@ -43,7 +46,8 @@ class ClockUI:
         self._RGB = None
         self._hour = None
         self._minute = None
-        
+        self._second = None
+
         self._weather_refresh_job = None
 
         #input frame
@@ -103,14 +107,13 @@ class ClockUI:
                 
         #api calls
         try:
-            self._fetch_weather_api(latitude, longitude)
+            self._schedule_weather_refresh(latitude, longitude)
         except ValueError as e:
             print(f"Weather fetch failed: {e}")
             self._inp_location_text.delete(0, "end")
             self._inp_location_text.configure(placeholder_text='Please Input A Valid Location')
             return
         self._fetch_time_api(latitude, longitude)
-        self._schedule_weather_refresh(latitude, longitude)
 
         self._window.geometry(f'{_WINDOW_WIDTH}x{_WINDOW_HEIGHT_FINAL}')
         self._reveal_final()
@@ -362,6 +365,7 @@ class ClockUI:
         time_data = api_calls.request_time(_TIME_KEY, latitude, longitude)
         self._hour = time_data['hour']
         self._minute = time_data['minute']
+        self._second = time_data['second']
         self._update_time_label()
         self._schedule_clock_tick()
 
@@ -373,14 +377,16 @@ class ClockUI:
         self._time_label.configure(text=time_display)
 
     def _schedule_clock_tick(self): #WIP IMPLEMENT ACCURATE SECONDS
-        """Increment time by 1 minute every 60,000 ms."""
-        self._minute += 1
+        miliseconds_until_minute = (60 - self._second) * 1000
+        self._second = 0
+
         if self._minute >= 60:
             self._minute = 0
             self._hour = (self._hour + 1) % 24
-
         self._update_time_label()
-        self._window.after(60_000, self._schedule_clock_tick)
+        self._minute += 1
+        
+        self._window.after(miliseconds_until_minute, self._schedule_clock_tick)
 
     def _fetch_weather_api(self, latitude: float, longitude: float):
             weather_data = api_calls.request_weather(_EMAIL, latitude, longitude)
@@ -392,7 +398,7 @@ class ClockUI:
             self._wind_speed = weather_data["wind_spd"]
             location = weather_data["weather_location"]
             
-            self._update_weather_labels()
+            self._update_weather_labels(location)
 
     def _update_weather_labels(self, location=None):
         """Update the weather tab labels using cached data."""
